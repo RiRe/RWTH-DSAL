@@ -440,7 +440,7 @@ Ein Baum ist ein kreisfreier und zusammenhängender Graph. Hat ein Baum $n$ Knot
 
 \subsection{Repräsentation von Graphen}
 
-Es stellt sich die Frage, wie man einen Graphen als Datenstruktur am sinnvollsten repräsentiert. Hierzu gibt es verschiedene Möglichkeiten.\\
+Es stellt sich die Frage, wie man einen Graphen als Datenstruktur am sinnvollsten repräsentiert. Hierzu gibt es verschiedene Möglichkeiten, wir machen uns die Adjazenz zu Nutzen.\\
 
 \textbf{Adjazenzmatrix}
 
@@ -450,9 +450,39 @@ Wir haben einen Graphen $G = (V, E)$ mit $|V| = n$, $|E| = m$ und $V = {v_1, ...
 
 Wir können einen Graphen auch als Array von Adjazenzlisten darstellen. Dabei ist die Arrayposition gegeben durch die Nummer des Knotens $i$, an dieser Stelle enthält das Array eine verkettete Liste mit allen Kanten mit Startknoten $v_i$. Wenn G ungerichtet ist, wird jede Kante zweimal gespeichert. Der Platzbedarf ist $\Theta(n+m)$.
 
-VL14
+\subsection{Graphendurchlauf}
 
-VL15
+Viele Algorithmen untersuchen jeden einzelnen Knoten und jede einzelne Kante eines Graphen. Dazu gibt es verschiedene Graphendurchlaufstrategien, die jeden Knoten (oder jede Kante) genau einmal besuchen: Die Breitensuche (BFS) und die Tiefensuche (DFS). Dabei handelt es sich im Wesentlichen um Verallgemeinerungen der Strategien zur Baumtraversierung.
+
+Allerdings müssen wir uns alle bereits besuchten Knoten explizit merken. Wir arbeiten mit der Adjazenzlisten-Darstellung, Algorithmen auf dieser Basis kosten $O(|V| + |E|)$ Zeit.\\
+
+\textbf{Breitensuche}
+
+Bei der Breitensuche (Breadth-First Search, BFS) sind anfangs alle Knoten als unbesucht (WHITE) markiert. Es wird in einem beliebigen Knoten $v$ begonnen. Der aktuelle Knoten wird immer als aktiv (GRAY) markiert. Sodann wird für jede Kante $(v, w)$ mit unbesuchtem Nachfolger $w$ von allen Kanten dieses Nachfolgers aus weitergesucht. Insbesondere gibt es keinerlei Backtracking. Der Knoten $v$ wird dann als besucht (BLACK) markiert. Damit sind die schwarzen Knoten dann genau jene Knoten, die vom Startknoten aus erreichbar sind.
+
+Für einen Knoten $v \in V$ bezeichnet $d(v)$ den Abstand vom Startknoten zum Knoten $v$, also die Anzahl der Kanten auf dem kürzesten Weg vom Startknoten nach $v$. Wenn ein Knoten $w$ in die Queue gegeben wird, so färben wir die dafür verantwortliche Kante $(v, w)$ gelb. Dann ist $v$ der Vater vom Knoten $w$.
+
+BFS besucht die Knoten also in einer Reihenfolge mit ansteigendem Abstand vom Startknoten. Erst wenn alle Knoten mit Abstand $d$ verarbeitet sind, werden die Knoten mit Abstand $d+1$ angegangen. Die Suche terminiert, wenn für einen Abstand $d$ keine Knoten auftreten. Die zu verarbeitenden Knoten werden als FIFO-Queue organisiert, es gibt nur eine einzige Verarbeitungsmöglichkeit für $v$ (wenn es aus der Queue entnommen wird). Die gelben Kanten induzieren den Breitensuchbaum, der den Startknoten als Wurzel hat.
+
+Die Zeitkomplexität der BFS ist $O(|V| + |E|)$, der Platzbedarf ist $\Theta(|V|)$.\\
+
+\textbf{Tiefensuche}
+
+Auch bei der Tiefensuche (Depth-First Search, DFS) markieren wir zunächst alle Knoten als unbesucht (WHITE). Der aktuelle Knoten $v$ wird immer als aktiv (GRAY) markiert, es ist beliebig, mit welchem Knoten wir beginnen. Für jede Kante $(v, w)$ mit unbesuchtem Nachfolger $w$ suchen wir nun rekursiv von $w$ aus. Das bedeutet also, dass wir den neu entdeckten Knoten $w$ besuchen und von dort aus forschen, bis es nicht mehr weiter geht. Sodann gehen wir von $w$ nach $v$ zurück. Für jede Kante $(v, w)$, für die der Nachfolger $w$ schon besucht wurde, überprüfen wir die Kante, besuchen $w$ aber nicht. Abschließend markieren wir den Knoten $v$ als besucht (BLACK). Damit sind auch bei der DFS die schwarzen Knoten diejenigen, die vom Startknoten aus erreichbar sind.\\
+
+Die Tiefensuche erforscht also einen Pfad so weit wie möglich und setzt dann zurück. Die zu verarbeitenden Knoten werden also in LIFO-Reihenfolge verarbeitet. Es gibt zwei mögliche Verarbeitungszeitpunkte für jeden Knoten - wenn dieser entdeckt oder wenn er abgeschlossen wird.\\
+
+Bei der Tiefensuche gibt es verschiedene Klassen von Kanten. Baum-Kanten treten im DFS-Baum auf. Rückwärts-Kanten gehen von Knoten $u$ zum Vorfahren $v$, Vorwärts-Kanten gehen von einem Vorfahren $v$ zu einem Knoten $u$. Alle restlichen Kanten sind Quer-Kanten. In einem ungerichteten Graphen ist jede Kante entweder Baum-Kante oder Rückwärts-Kante.\\
+
+Die Zeitkomplexität der DFS ist $O(|V| + |E|)$, der Platzbedarf ist $\Theta(|V|)$.
+
+\subsection{Finden von Zusammenhangskomponenten}
+
+TODO
+
+\subsection{VL15}
+
+TODO
 
 \section{Minimale Spannbäume}
 

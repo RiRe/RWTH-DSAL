@@ -647,7 +647,13 @@ VL17 (10.08.2017)
 
 \section{Matching}
 
-VL18 (10.08.2017)
+\subsection{Definition}
+
+Es sei $G = (V, E)$ ein ungerichteter Graph. Eine Kantenmenge $M \subseteq E$ heißt Matching, falls je zwei verschiedene Kanten in $M$ disjunkt sind (für alle $e, e' \in M$ mit $e \neq e'$ gilt $e \cap e' = \emptyset$). Ein Knoten $v \in V$ wird von einem Matching $M$ überdeckt, falls $v \in e$ für eine Kante $e \in M$ gilt.
+
+Wir bezeichnen einen Graphen $G = (V, E)$ als \textbf{bipartit}, falls es eine Partition $V = X \cup Y$ der Knotenmenge gibt, sodass $E \subseteq X \times Y$.
+
+Für einen ungerichteten Graphen $G = (V, E)$ suchen wir oft ein \textbf{Matching} $M \subseteq E$ mit maximaler Kardinalität. Ist der Graph $G$ bipartit, bezeichnen wir das Matching auch als \textbf{bipartites Matching}.
 
 \section{Maximaler Fluss}
 

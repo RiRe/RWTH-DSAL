@@ -649,7 +649,11 @@ Man kann nun einen SSSP-Algorithmus (z.B. Bellman-Ford) $|V|$-mal anwenden, das 
 
 \subsection{Binäre Relationen}
 
-VL17 (10.08.2017)
+Eine (binäre) Relation $R$ über einer Menge $S$ ist eine Teilmenge $R \subseteq S \times S = S^2$.
+
+Aus der Vorlesung \textit{Diskrete Strukturen} kennen wir die Reflexivität ($\forall u \in S : (u, u) \in R$) und die Transitivität ($(u, v) \in R \land (v, w) \in R => (u, w) \in R$). Die transitive Hülle $R^*$ einer Relation $R$ ist die kleinste Erweiterung (Obermenge) $R \subseteq R^* \subseteq S^2$, sodass $R^*$ reflexiv und transitiv ist.
+
+Für einen Graphen mit der Menge $S = V$ und der Relation $R = E$ gilt: Es ist $(u, v) \in R^*$ gdw. ein Pfad von $u$ nach $v$ existiert.
 
 \subsection{Warshall-Algorithmus}
 

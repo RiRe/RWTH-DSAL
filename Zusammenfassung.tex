@@ -623,7 +623,15 @@ Die kürzesten Pfade für alle Knotenpaare ermitteln wir mit All-Pairs Shortest 
 
 \subsection{Bellman-Ford-Algorithmus}
 
-VL17 (10.08.2017)
+Der Bellman-Ford-Algorithmus berechnet die kürzesten Pfade von einem einzigen Startpunkt aus, ist also ein SSSP-Algorithmus. Dabei erlaubt der Algorithmus auch negative Kantengewichte und kann negative Zyklen feststellen, die vom Startknoten aus erreichbar sind (diese sind problematisch, da man durch unendliches Durchlaufen durch diese Knoten immer kürzere Strecken erreichen und somit keine kürzeste Strecken finden kann) - dann gibt es keine Lösung und der Algorithmus terminiert, sobald ein negativer Kreis gefunden wurde.
+
+Initial ist für den Startknoten ($s$) $dist[s] = 0$ und für alle anderen Knoten ($v \in V \setminus \{s\}$) $dist[v] = \infty$. Wenn es eine Lösung gibt (also kein negativer Kreis vorhanden ist), verbessert der Algorithmus für jeden Knoten $v$ eine obere Grenze $dist[v]$ für $\delta(s, v)$, bis das Minimum gefunden wurde. Dazu wird für alle Kanten $(v, w) \in E$ iterativ geprüft, ob das bisher bekannte Gewicht $dist[w]$ größer als $dist[v] + W(v, w)$ ist - ist dies der Fall, wird $dist[w]$ auf den neuen Wert verbessert.
+
+Wir sind fertig, wenn keine Verbesserungen mehr möglich sind. Gibt es nach $|V|-1$ Wiederholungen noch Verbesserungen, so existiert ein negativer Kreis. Ansonsten gilt $dist[v] = \delta(s, v)$ für alle Knoten $v \in V$.
+
+Der Algorithmus speichert zusätzlich die Vorgängerknoten entlang eines kürzesten Pfades im Array $prev$, sodass sich so nach Terminierung die kürzesten Pfade rekonstruieren lassen.
+
+Die Zeitkomplexität des Algorithmus ist gegeben durch $O(|V|*|E|)$.
 
 \subsection{Dijkstra-Algorithmus}
 

@@ -581,6 +581,26 @@ Für Bäume gibt es einen sogenannten \textit{Prüfer-Code}, in diesen können w
 
 Um einen Baum in einen Prüfer-Code zu übersetzen, müssen wir iterativ das \textbf{Blatt} $x$ mit kleinster Nummer bestimmen, $x$ zusammen mit der inzidenten Kante $(x, y)$ löschen und $y$ im Tupel speichern. Fertig sind wir, wenn nur noch eine Kante übrig ist. Übrigens: Ein Knoten mit Grad $d$ kommt $(d-1)$-mal im Prüfer-Code vor.
 
+\subsection{Prim und Kruskal}
+
+Die Algorithmen von Prim und Kruskal finden für einen gewichteten zusammenhängenden Graphen $G$ mit $n$ Knoten einen minimalen Spannbaum von $G$.\\
+
+\textbf{Kruskal's Algorithmus}
+
+\begin{enumerate}
+\item Wähle eine billigste unmarkierte Kante.
+\item Markiere sie, falls sie keinen Kreis mit anderen markierten Kanten schließt.
+\item Wiederhole, bis $n-1$ Kanten markiert sind.
+\end{enumerate}
+
+\textbf{Prim's Algorithmus}
+
+\begin{enumerate}
+\item Wähle einen Startknoten.
+\item Markiere die billigste vom bereits konstruierten Baum ausgehende Kante, die keinen Kreis mit anderen markierten Kanten schließt.
+\item Wiederhole Schritt 2 bis $n-1$ Kanten markiert sind.
+\end{enumerate}
+
 \section{Kürzeste Pfade}
 
 VL17 (10.08.2017)

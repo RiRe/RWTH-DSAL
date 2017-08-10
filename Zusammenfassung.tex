@@ -635,7 +635,11 @@ Die Zeitkomplexität des Algorithmus ist gegeben durch $O(|V|*|E|)$.
 
 \subsection{Dijkstra-Algorithmus}
 
-VL17 (10.08.2017)
+Dijkstra arbeitet im Gegensatz zu Bellman und Ford nur mit nicht-negativen Kantengewichten. Es gilt also $\forall (v, w) \in E : W(v, w) \geq 0$. Kürzeste Pfade enthalten damit keine Zyklen.
+
+Wir beginnen mit unserem Startknoten $s$, dieser hat $dist[s] = 0$. Alle anderen Knoten $v \in V \setminus \{s\}$ haben $dist[v] = \infty$. Der Startknoten wird schwarz gefärbt, er ist Teil unseres (Hilfs-)Baums. Wir betrachten nun alle Randkanten $(s, v) \in E$ und suchen die Kante mit dem geringsten Kantengewicht. Sodann fügen wir den neuen Zielknoten $v$ zum Baum hinzu, indem wir ihn ebenfalls schwarz färben. Wir betrachten nun iterativ die Randkanten unseres Baums und suchen immer wieder die billigste Kante (dabei muss auf die Summe geachtet werden, es dürfen ferner keine Zyklen entstehen). Entsprechend füllen wir $dist[v]$ für $v \in V$, bis alle Knoten im Baum sind.
+
+Der Dijkstra-Algorithmus findet die kürzesten Wege mit zunehmenden Abstand zur Quelle $s$, die Implementierung ist ähnlich zum Spannbaum-Algorithmus von Prim (8.4). Die Zeitkomplexität im Worst-Case ist $\in \Theta(|V|^2)$, ferner ist die untere Schranke $\Omega(|E|)$. Wir haben eine Platzkomplexität von $O(|V|)$.
 
 \subsection{All-Pairs Shortest Paths}
 

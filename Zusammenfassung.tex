@@ -603,6 +603,24 @@ Die Algorithmen von Prim und Kruskal finden für einen gewichteten zusammenhäng
 
 \section{Kürzeste Pfade}
 
+Nachfolgend geht es um das Kürzeste-Pfade-Problem. Ein Beispiel: Wir haben eine Straßenkarte, auf der der Abstand zwischen jedem Paar von benachbarten Kreuzungen eingezeichnet ist, eine Startkreuzung $s$ und eine Zielkreuzung $t$. Wie finden wir nun algorithmisch den kürzesten Weg von $s$ nach $t$?
+
+\subsection{Notation}
+
+Wir arbeiten mit einem kantengewichteten Graphen $G = (V, E, W)$. Ein kürzester Pfad vom Knoten $s \in V$ zum Knoten $v \in V$ ist ein Pfag von $s$ nach $v$ mit minimalem Gewicht.
+
+Wir definieren $\delta: (V \times V) \rightarrow (\mathbb{R} \cup \{\infty\})$. Es ist $\delta(s, v)$ das Gewicht des kürzesten Pfades von $s$ nach $v$ und $\delta(s, v) = \infty$, falls $v$ von $s$ nicht erreichbar ist.
+
+\subsection{Problemvarianten}
+
+Es gibt viele verschiedene Varianten des Kürzeste-Pfade-Problems:
+
+Kürzeste Pfade von einem Startknoten $s$ zu allen anderen Knoten sind Single-Source Shortest Paths (SSSP). Kürzeste Pfade von allen Knoten zu einem Zielknoten $t$ lässt sich auf SSSP zurückführen.
+
+Für den kürzesten Pfad für ein festes Knotenpaar $(u, v)$ ist kein Algorithmus bekannt, der asymptotisch schneller ist als der beste SSSP-Algorithmus.
+
+Die kürzesten Pfade für alle Knotenpaare ermitteln wir mit All-Pairs Shortest Paths (APSP).
+
 VL17 (10.08.2017)
 
 \section{Matching}

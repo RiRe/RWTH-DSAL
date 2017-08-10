@@ -643,7 +643,9 @@ Der Dijkstra-Algorithmus findet die kürzesten Wege mit zunehmenden Abstand zur 
 
 \subsection{All-Pairs Shortest Paths}
 
-VL17 (10.08.2017)
+Wir betrachten gewichtete, gerichtete Graphen $G = (V, E, W)$. Dabei sind negative Gewichte zwar erlaubt, aber keine Kreise mit negativen Gewicht. Nicht vorhandene Kanten haben das Gewicht $W(-,=) = \infty$. Wir möchten nun für jedes Paar $(i, j)$ das Gewicht $D[i,j]$ des kürzesten Pfades berechnen.
+
+Man kann nun einen SSSP-Algorithmus (z.B. Bellman-Ford) $|V|$-mal anwenden, das führt allerdings zu einer Worst-Case-Zeitkomplexität von $O(|V|^4)$. Im Folgenden werden wir effizientere Algorithmen für das APSP-Problem kennenlernen.
 
 \subsection{Binäre Relationen}
 

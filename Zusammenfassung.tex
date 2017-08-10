@@ -297,7 +297,7 @@ Durch die Rotation bleibt ein BST weiterhin ein BST, auch die Inorder-Traversier
 
 Ein AVL-Baum ist ein balanzierter BST, bei dem sich für jeden Knoten die Höhen der beiden Teilbäume um höchstens 1 unterscheiden - die Höhe der Teilbäume wird balanziert. Es gibt ein zusätzliches Datenfeld für jeden Knoten, in dem über die Höhe des Unterbaums Buch geführt wird.
 
-Nach jeder Operation muss die Bilanz des AVL-Baums wiederhergestellt werden, dies ist in $\Theta{h}$ möglich. Dadurch ist stets $h \in \Theta{log(n)}$ gewährleistet, $\Theta{log(n)}$ kann für alle Operationen auf dem Baum garantiert werden.
+Nach jeder Operation muss die Bilanz des AVL-Baums wiederhergestellt werden, dies ist in $\Theta(h)$ möglich. Dadurch ist stets $h \in \Theta(log(n))$ gewährleistet, $\Theta(log(n))$ kann für alle Operationen auf dem Baum garantiert werden.
 
 Es kann - wie bereits angerissen - passieren, dass der AVL-Baum nach dem Einfügen eines Knotens unbalanziert ist und die Bedingungen damit verletzt sind. Dann muss der  Baum neu balanziert werden. Dafür gibt es folgende Regeln:
 
@@ -521,7 +521,7 @@ Der Kosaraju-Sharir-Algorithmus findet starke Komponenten in einem gerichteten G
 
 Ein Knoten $v$ heißt \enquote{Leiter} (lt. Vorlesung, besser \enquote{Anführer}, da engl. leader lt. VL), wenn er als letzter Knoten in seiner SCC bei der DFS BLACK gefärbt wird.
 
-Die Worst-Zeit-Komplexität des Kosaraju-Sharir-Algorithmus ist $\Theta(|V| + |E|)$, die Speicherkomplexität ist $\Theta{|V|}$.
+Die Worst-Zeit-Komplexität des Kosaraju-Sharir-Algorithmus ist $\Theta(|V| + |E|)$, die Speicherkomplexität ist $\Theta(|V|)$.
 
 \subsection{Gerichtete azyklische Graphen (DAGs)}
 

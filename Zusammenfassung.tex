@@ -182,7 +182,7 @@ Es folgt: $T(n) \in \Theta(f(n))$
 
 \subsection{Grundlegendes}
 
-Ein Sortieralgorithmus ist \textbf{stabil}, wenn er die Reihenfolge der Elemente, deren Sortierschlüssel gleich sind, aufrecht erhält.
+Ein Sortieralgorithmus ist \textbf{stabil}, wenn er die Reihenfolge der Elemente, deren Sortierschlüssel gleich sind, aufrecht erhält. Wir bezeichnen einen Sortieralgorithmus als \textbf{in-place}, wenn er außer dem für die Speicherung der zu bearbeitenden Daten benötigten Speicher nur eine konstante Menge von Speicher benötigt (die also von der zu bearbeitenden Datenmenge unabhängig ist).
 
 \subsection{Insertionsort}
 
@@ -553,7 +553,13 @@ Als Gewicht eines Pfades bezeichnen wir die Summe der Kantengewichte der besucht
 
 \subsection{Eulersche Kreise}
 
-VL15 (10.08.2017)
+Ein eulerscher Kreis in einem Graphen $G = (V, E)$ ist ein Kreis, der jede Kante genau einmal durchläuft. 
+
+Ein ungerichteter Graph $G$ besitzt einen eulerschen Kreis gdw. jeder Knoten einen geraden Grad hat und wenn $G$ zusammenhängend ist.
+
+Ein gerichteter Graph $G$ besitzt einen eulerschen Kreis gdw. der Eingangsgrad jedes Knotens dem Ausgangsgrad entspricht und $G$ (stark oder schwach) zusammenhängend ist.
+
+Wir können einen Eulerkreis in einem Graphen $G = (V, E)$ in $O(|V| + |E|)$ Zeit berechnen.
 
 \section{Minimale Spannbäume}
 

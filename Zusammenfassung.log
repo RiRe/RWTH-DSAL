@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.7.6)  10 AUG 2017 17:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.7.6)  10 AUG 2017 17:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -868,25 +868,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 230--231
 
  []
 
-
+[4]
 Underfull \hbox (badness 10000) in paragraph at lines 240--241
 
  []
 
-[4]
+
 Underfull \hbox (badness 10000) in paragraph at lines 246--247
 
  []
 
+[5]
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <12> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 266.
-[5] [6] [7]
+ [6] [7] [8]
 Overfull \hbox (3.13962pt too wide) in paragraph at lines 351--352
 \T1/lmss/m/n/12 (Iden-ti-fika-tion; Fin-ger-ab-druck) berech-net. Dabei ist er 
 klar definiert und ein-fach sowie ressourcenscho-
  []
 
-[8]
+
 Underfull \hbox (badness 10000) in paragraph at lines 359--360
 
  []
@@ -901,12 +902,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 393--394
 
  []
 
-
+[10]
 Underfull \hbox (badness 10000) in paragraph at lines 399--400
 
  []
 
-[10]
+
 Underfull \hbox (badness 10000) in paragraph at lines 405--406
 
  []
@@ -936,7 +937,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 477--478
 
  []
 
-
+[13]
 Underfull \hbox (badness 10000) in paragraph at lines 479--480
 
  []
@@ -946,12 +947,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 481--482
 
  []
 
-[13] [14]
+[14] [15]
 Underfull \hbox (badness 10000) in paragraph at lines 546--547
 
  []
 
-[15] [16] [17] (./Zusammenfassung.aux)
+[16] [17] (./Zusammenfassung.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -979,7 +980,7 @@ public/lm/lmr8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/lm/lmss12.pfb
 s/type1/public/lm/lmsy10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/lm/
 lmsy6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/texli
 ve/2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Zusammenfassung.pdf (19 pages, 224085 bytes).
+Output written on Zusammenfassung.pdf (19 pages, 224231 bytes).
 PDF statistics:
  127 PDF objects out of 1000 (max. 8388607)
  91 compressed objects within 1 object stream

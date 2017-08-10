@@ -484,7 +484,7 @@ Die Zeitkomplexität der DFS ist $O(|V| + |E|)$, der Platzbedarf ist $\Theta(|V|
 
 \subsection{Zusammenhangskomponenten in ungerichteten Graphen}
 
-Was tun wir, wenn wir alle Zusammenhangskomponenten eines ungerichteten Graphen bestimmen möchten?
+Was tun wir, wenn wir alle Zusammenhangskomponenten (SCCs) eines ungerichteten Graphen bestimmen möchten?
 
 \begin{itemize}
 \item Konstruktion des dazugehörigen symmetrischen, gerichteten Graphen
@@ -495,9 +495,13 @@ Was tun wir, wenn wir alle Zusammenhangskomponenten eines ungerichteten Graphen 
 
 \subsection{Zusammenhangskomponenten in gerichteten Graphen}
 
-\textit{Wiederholung (7.2):} Es sei $G$ ein gerichteter Graph. $G$ heißt stark zusammenhängend, wenn jeder Knoten von jedem anderen Knoten aus erreichbar ist. Eine starke Zusammenhangskomponente von $G$ ist ein maximaler stark zusammenhängender Teilgraph von $G$.
+\textit{Wiederholung (7.2):} Es sei $G$ ein gerichteter Graph. $G$ heißt stark zusammenhängend, wenn jeder Knoten von jedem anderen Knoten aus erreichbar ist. Eine starke Zusammenhangskomponente von $G$ ist ein maximaler stark zusammenhängender Teilgraph von $G$. Der transponierte Graph von $G$ ist $G^T$, hier ist die Richtung aller Kanten von $G$ umgedreht.
 
-Die starken Zusammenhangskomponenten eines gerichteten Graphen induzieren den dazugehörigen \textit{Kondensationsgraphen}. Es sei $G = (V, E)$ ein gerichteter Graph mit $k$ starken Zusammenhangskomponenten $S_i = (V_i, E_i)$ für $1 \leq i \leq k$. Der Kondensationsgraph $G\downarrow$ $= (V', E')$ ist dann definiert durch $V' = {V_1, ..., V_k}$. Es ist $(V_i, V_j) \in E'$ gdw. $i \neq j$ und $\exists(v, w) \in E : v \in V_i \land w \in V_j$. Der Kondensationsgraph $G\downarrow$ ist azyklisch.
+Die starken Zusammenhangskomponenten eines gerichteten Graphen induzieren den dazugehörigen \textbf{Kondensationsgraphen}. Diesen bilden wir, indem wir jede Zusammenhangskomponente quasi zu einem Knoten zusammenfassen und die Kanten zwischen den Zusammenhangskomponenten übernehmen. Der Kondensationsgraph $G\downarrow$ ist azyklisch.
+
+Aus der Vorlesung stammt die folgende Definition für den Kondensationsgraphen, die zunächst wegen der Definition von $V'$ verwirrt: Es sei $G = (V, E)$ ein gerichteter Graph mit $k$ starken Zusammenhangskomponenten $S_i = (V_i, E_i)$ für $1 \leq i \leq k$. Der Kondensationsgraph $G\downarrow$ $= (V', E')$ ist dann definiert durch $V' = \{V_1, ..., V_k\}$ (es gibt für jede Zusammenhangskomponente einen Zustand, der quasi nach einer Menge benannt ist). Es ist $(V_i, V_j) \in E'$ gdw. $i \neq j$ und $\exists(v, w) \in E : v \in V_i$ $\land$ $w \in V_j$.
+
+Die starken Komponenten von $G$ und $G^T$ sind die gleichen. Die Kondensation und die Transposition kommutieren: $(G\downarrow)^T = (G^T)\downarrow$.
 
 \subsection{Erreichbarkeitsanalysen}
 
@@ -507,7 +511,17 @@ Das Problem (die Suche nach einem Weg von einem beliebigen Knoten zum Ausgang) l
 
 \subsection{Kosaraju-Sharir-Algorithmus}
 
-VL15 (10.08.2017)
+Der Kosaraju-Sharir-Algorithmus findet starke Komponenten in einem gerichteten Graphen in zwei Phasen:
+
+\begin{enumerate}
+\item Führe DFS auf G durch. Speichere jeden Knoten beim Abschließen (d. h. wenn der Knoten BLACK gefärbt wird) auf einem Stack $S$.
+\item Färbe alle Knoten wieder auf WHITE zurück.
+\item Wiederhole, solange $S$ noch weiße Knoten enthält. Wähle den obersten noch weißen Knoten $v$ vom Stack $S$. Führe DFS mit Startknoten $v$ auf transponiertem Graphen $G^T$ aus. Speichere für jeden besuchten Knoten diesen \textit{Leiterknoten} $v$ als Repräsentanten seiner SCC.
+\end{enumerate}
+
+Ein Knoten $v$ heißt \enquote{Leiter} (lt. Vorlesung, besser \enquote{Anführer}, da engl. leader lt. VL), wenn er als letzter Knoten in seiner SCC bei der DFS BLACK gefärbt wird.
+
+Die Worst-Zeit-Komplexität des Kosaraju-Sharir-Algorithmus ist $\Theta(|V| + |E|)$, die Speicherkomplexität ist $\Theta{|V|}$.
 
 \subsection{Gerichtete azyklische Graphen (DAGs)}
 
@@ -557,6 +571,8 @@ VL21 (11.08.2017)
 
 VL22 (11.08.2017)
 
+\section{Abkürzungsverzeichnis}
 
+11.08.2017
 
 \end{document}

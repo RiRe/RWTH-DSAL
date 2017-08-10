@@ -54,7 +54,7 @@ W(n) = max $\{ t(I) | I \in D_n \}$
 
 B(n) = min $\{ t(I) | I \in D_n \}$
 
-A(n) = $\sum_{I \in D_{n}}$ $Pr(I) * t(I)$
+A(n) = $\sum_{I \in D_{n}}$ $Pr(I) \cdot{} t(I)$
 
 \subsection{Asymptotische Betrachtung}
 
@@ -74,7 +74,7 @@ Diese Eigenschaft gilt ab einer Konstanten $n_0$, Werte unter $n_0$ werden verna
 
 $g \in O(n^2)$ sagt mehr aus als $g \in O(n^3)$.\\
 
-\textbf{Beispiel}: $g \in O(f)$ heißt, dass $c * f(n)$ eine obere Schranke für $g(n)$ ist.\\
+\textbf{Beispiel}: $g \in O(f)$ heißt, dass $c \cdot{} f(n)$ eine obere Schranke für $g(n)$ ist.\\
 
 $O(cf(n)) = O(f(n))$
 
@@ -84,7 +84,7 @@ $O(f(n)) + O(g(n)) = O($max \{$f(n), g(n)$\}$)$
 
 $O(f(n))O(g(n)) = O(f(n)g(n))$
 
-$f(O(1)) = O(1)$\\
+$f(O(1)) = O(1)$ (das ist jetzt weder formal korrekt noch irgendwie sinnvoll, aber es stand da so)\\
 
 $\sum_{k=1}^n O(f(k))$ $\subseteq O(nf(n))$, wenn $f(n)$ monoton steigt
 
@@ -96,7 +96,7 @@ Diese Eigenschaft gilt ab einer Konstanten $n_0$, Werte unter $n_0$ werden verna
 
 $g \in \Omega(n^2)$ sagt mehr aus als $g \in \Omega(n)$.\\
 
-\textbf{Beispiel}: $g \in \Omega(f)$ heißt, dass $c * f(n)$ eine untere Schranke für $g(n)$ ist.\\
+\textbf{Beispiel}: $g \in \Omega(f)$ heißt, dass $c \cdot{} f(n)$ eine untere Schranke für $g(n)$ ist.\\
 
 \subsection{Die Klasse Gross-Theta}
 
@@ -104,7 +104,7 @@ $\Theta(f)$ ist die Menge von Funktionen, die \textbf{genauso schnell} wie die F
 
 Diese Eigenschaft gilt ab einer Konstanten $n_0$, Werte unter $n_0$ werden vernachlässigt.\\
 
-\textbf{Beispiel}: $g \in \Theta(f)$ heißt, dass $c_1 * f(n)$ eine untere Schranke und $c_2 * f(n)$ eine obere Schranke für $g(n)$ ist.\\
+\textbf{Beispiel}: $g \in \Theta(f)$ heißt, dass $c_1 \cdot{} f(n)$ eine untere Schranke und $c_2 \cdot{} f(n)$ eine obere Schranke für $g(n)$ ist.\\
 
 $g \in \Theta(f)$ wenn \(\lim\limits_{n \to \infty}\frac{g(n)}{f(n)}=c\) für ein $0 < c < \infty$
 
@@ -154,7 +154,7 @@ Zeitkomplexität ist $O($log $n)$, allerdings ist die Initialisierung mit $O(n $
 
 \subsection{Mastertheorem}
 
-$T(n) = b * T(\frac{n}{c}) + f(n)$ mit $b \geq 1$ und $c > 1$
+$T(n) = b \cdot{} T(\frac{n}{c}) + f(n)$ mit $b \geq 1$ und $c > 1$
 
 Anzahl der Blätter im Rekursionsbaum: $n^E$ mit $E = \frac{log(b)}{log(c)} = $ log$_c(b)$\\
 
@@ -168,13 +168,13 @@ Es folgt: $T(n) \in \Theta(n^E)$\\
 
 Bedingung: $f(n) \in \Theta(n^{E})$
 
-Es folgt: $T(n) \in \Theta(n^E$ $*$ log $n)$\\
+Es folgt: $T(n) \in \Theta(n^E$ $\cdot{}$ log $n)$\\
 
 \textbf{Fall 3}
 
 1. Bedingung: $f(n) \in \Omega(n^{E+\epsilon})$ für ein $\epsilon > 0$
 
-2. Bedingung: $b*f(\frac{n}{c}) \leq d * f(n)$ für ein $d < 1$ und ein hinreichend großes $n$
+2. Bedingung: $b\cdot{}f(\frac{n}{c}) \leq d \cdot{} f(n)$ für ein $d < 1$ und ein hinreichend großes $n$
 
 Es folgt: $T(n) \in \Theta(f(n))$
 
@@ -200,7 +200,7 @@ Sie lösen die Teilprobleme rekursiv und kombinieren diese Lösungen dann, um di
 
 Array wird in zwei möglichst gleich große Hälften geteilt, die durch rekursive Mergesort-Aufrufe sortiert werden.
 
-Es ist $W(n) = B(n) = A(n) \in \Theta(n * log(n))$.
+Es ist $W(n) = B(n) = A(n) \in \Theta(n \cdot{} log(n))$.
 
 Speicherbedarf $\Theta(n)$ für die Kopie des Arrays und $\Theta(log(n))$ für die Verwaltung der Rekursion.
 
@@ -215,7 +215,7 @@ Ein Heap ist ein Binärbaum, der Elemente mit Schlüsseln enthält. Für \textbf
 \item Die Blätter der untersten Ebene sind linksbündig angeordnet.
 \end{itemize}
 
-Heaps lassen sich in Arrays einbetten, dabei liegt die Wurzel in $a[0]$, das linke Kind von $a[i]$ in $a[2*i+1]$ und das rechte Kind in $a[2*i+2]$.
+Heaps lassen sich in Arrays einbetten, dabei liegt die Wurzel in $a[0]$, das linke Kind von $a[i]$ in $a[2\cdot{}i+1]$ und das rechte Kind in $a[2\cdot{}i+2]$.
 
 Die Höhe eines Heaps in Abhängigkeit von seinen Elementen ist gegeben durch $H = \lfloor{}log_2(n)\rfloor$. Es ist $H \in O($log $n)$.
 
@@ -229,7 +229,7 @@ Im Max-Heap enthält die Wurzel immer die größte Ziffer, deshalb tauschen wir 
 
 Dieses Verfahren wird rekursiv angewendet, indem das letzte, sortierte Element gestrichen wird. Anschließend muss wieder ein Max-Heap aufgebaut werden und wir beginnen von vorne, bis im Heap keine Elemente mehr enthalten sind, sodass das Array sortiert ist.\\
 
-Auch Heapsort hat eine Laufzeitkomplexität von $O(n*log(n))$, der Speicherplatzbedarf ist konstant. Heapsort ist ein Inplace-Sortieralgorithmus und nicht stabil.
+Auch Heapsort hat eine Laufzeitkomplexität von $O(n\cdot{}log(n))$, der Speicherplatzbedarf ist konstant. Heapsort ist ein Inplace-Sortieralgorithmus und nicht stabil.
 
 \subsection{Prioritätswarteschlange}
 
@@ -239,7 +239,7 @@ Elemente werden mit Schlüsseln versehen, wobei jeder Schlüssel höchstens an e
 
 Wir wählen ein beliebigies Pivotelement und teilen das Array danach in zwei Teile - der linke Teil enthält Elemente, die kleiner als das Pivotelement sind, der rechte Teil enthält Elemente, die mindestens so groß sind wie das Pivotelement, allerdings nicht das Pivotelement selbst. Das wiederholen wir rekursiv. Die Pivotelemente sind am Ende in korrekter Reihenfolge.\\
 
-Die Platzkomplexität von Quicksort ist $\Theta(log(n))$, es ist $W(n) \in \Theta(n^2)$, $B(n) \in O(n*log(n))$ und $A(n) \in O(n*log(n))$.
+Die Platzkomplexität von Quicksort ist $\Theta(log(n))$, es ist $W(n) \in \Theta(n^2)$, $B(n) \in O(n\cdot{}log(n))$ und $A(n) \in O(n\cdot{}log(n))$.
 
 \subsection{Bubblesort}
 
@@ -360,7 +360,7 @@ Eine gute Hash-Funktion ist einfach zu berechnen, surjektiv auf der Zielmenge un
 
 Bei der Divisionsmethode wird die Hashfunktion mit $h(k) = k$ mod $m$ gebildet. Dabei muss man $m$ sorgfältig wählen, da zum Beispiel bei $m = 2^p$ einfach die letzten $p$ Bits genommen werden. Eine gute Wahl ist $m$ prim und nicht zu nah an einer Zweierpotenz.\\
 
-Die Multiplikationsmethode stellt $h(k) = \lfloor{}m * (k * c$ mod $1)\rfloor$ mit $0 < c < 1$. Der Parameter $m$ ist dabei nicht kritisch, Knuth empfiehlt $c = \frac{(\sqrt{5} - 1)}{2} \approx 0,618$.
+Die Multiplikationsmethode stellt $h(k) = \lfloor{}m \cdot{} (k \cdot{} c$ mod $1)\rfloor$ mit $0 < c < 1$. Der Parameter $m$ ist dabei nicht kritisch, Knuth empfiehlt $c = \frac{(\sqrt{5} - 1)}{2} \approx 0,618$.
 
 \subsection{Universelles Hashing}
 
@@ -400,13 +400,13 @@ Das führt zum Problem des Clusterings: Lange Folgen von belegten Slots tendiere
 
 \textbf{Quadratisches Sondieren}
 
-$h(k, i) = (h'(k) + c_1 * i + c_2 * i^2)$ mod $m$ ist eine Hashfunktion für quadratisches Sondieren. Dabei ist $h'$ eine normale Hashfunktion (siehe 6.4) und $c_1, c_2 \in \mathbb{N}$ sind geeignete Konstanten. Die Verschiebung der nachfolgenden Sondierungen hängt damit quadratisch von $i$ ab. Damit wird die gesamte Sequenz auch bei der quadratischen Sondierung bereits durch die erste Sondierung bestimmt und es gibt nur $m$ verschiedene Sequenzen.
+$h(k, i) = (h'(k) + c_1 \cdot{} i + c_2 \cdot{} i^2)$ mod $m$ ist eine Hashfunktion für quadratisches Sondieren. Dabei ist $h'$ eine normale Hashfunktion (siehe 6.4) und $c_1, c_2 \in \mathbb{N}$ sind geeignete Konstanten. Die Verschiebung der nachfolgenden Sondierungen hängt damit quadratisch von $i$ ab. Damit wird die gesamte Sequenz auch bei der quadratischen Sondierung bereits durch die erste Sondierung bestimmt und es gibt nur $m$ verschiedene Sequenzen.
 
 Das Problem des Clusterings wird vermieden oder zumindest abgeschwächt. Allerdings tritt immer noch sekundäres Clustering auf, denn $h(k,0) = h(k',0)$ verursacht $h(k,i) = h(k',i)$ für alle $i$.\\
 
 \textbf{Doppeltes Hashing}
 
-$h(k, i) = (h_1(k) + i * h_2(k))$ mod $m$ ist eine Hashfunktion für doppeltes Hashing. Dabei sind $h_1$ und $h_2$ normale Hashfunktionen (siehe 6.4). Die Verschiebung der nachfolgenden Sondierungen hängt damit nur von $h_2$ ab. Damit wird die gesamte Sequenz nicht bereits durch die erste Sondierung bestimmt. Deswegen werden die Schlüssel besser in der Hashtabelle verteilt und es wird eine Approximierung von gleichverteiltem Hashing erzielt.
+$h(k, i) = (h_1(k) + i \cdot{} h_2(k))$ mod $m$ ist eine Hashfunktion für doppeltes Hashing. Dabei sind $h_1$ und $h_2$ normale Hashfunktionen (siehe 6.4). Die Verschiebung der nachfolgenden Sondierungen hängt damit nur von $h_2$ ab. Damit wird die gesamte Sequenz nicht bereits durch die erste Sondierung bestimmt. Deswegen werden die Schlüssel besser in der Hashtabelle verteilt und es wird eine Approximierung von gleichverteiltem Hashing erzielt.
 
 Sind $h_2$ und $m$ relativ prim, wird die gesamte Hashtabelle abgesucht. Man kann zum Beispiel $m = 2^k$ wählen und $h_2$ nur ungerade Zahlen erzeugen lassen, um ein gutes Ergebnis zu erzielen. Dann können $m^2$ verschiedene Permutationen erzeugt werden, weil jedes mögliche Paar von $h_1(k)$ und $h_2(k)$ eine andere Sequenz erzeugt.
 
@@ -418,7 +418,7 @@ Graphen haben wir in der Vorlesung \textit{Diskrete Strukturen} definiert, diese
 
 Der Knoten $u$ ist adjazent zu Knoten $v$ gdw. $(u,v) \in E$ und inzident zu der Kante $e = (u,v)$. Der Grad $deg(u)$ ist die Anzahl der zu $u$ inzidenten Kanten. Wir definieren - insbesondere für gerichtete Graphen - ferner den In-Grad $deg^+(u)$ und den Aus-Grad $deg^-(u)$. Ein Graph ist $k$-regulär, wenn alle Knoten den Grad $k$ haben.
 
-In ungerichteten Graphen $G = (V, E)$ gilt das Handshake-Lemma $\sum_{v \in V}$ $deg(v) = 2*|E|$, bei gerichteten Graphen ist $\sum_{v \in V}$ $deg^+(v) = \sum_{v \in V}$ $deg^-(v)$.
+In ungerichteten Graphen $G = (V, E)$ gilt das Handshake-Lemma $\sum_{v \in V}$ $deg(v) = 2\cdot{}|E|$, bei gerichteten Graphen ist $\sum_{v \in V}$ $deg^+(v) = \sum_{v \in V}$ $deg^-(v)$.
 
 Ein Teilgraph eines Graphen $G = (V, E)$ ist ein Graph $G' = (V', E')$ mit $V' \subseteq V$ und $E' \subseteq E \cap (V' \times V')$. Ist $V' \subset V$ und/oder $E' \subset E$, so nennen wir $G'$ einen echten Teilgraphen von $G$. Wenn $E' = E \cap (V' \times V')$ ist, so ist $G'$ der durch $V'$ induzierte Teilgraph.
 
@@ -631,7 +631,7 @@ Wir sind fertig, wenn keine Verbesserungen mehr möglich sind. Gibt es nach $|V|
 
 Der Algorithmus speichert zusätzlich die Vorgängerknoten entlang eines kürzesten Pfades im Array $prev$, sodass sich so nach Terminierung die kürzesten Pfade rekonstruieren lassen.
 
-Die Zeitkomplexität des Algorithmus ist gegeben durch $O(|V|*|E|)$.
+Die Zeitkomplexität des Algorithmus ist gegeben durch $O(|V|\cdot{}|E|)$.
 
 \subsection{Dijkstra-Algorithmus}
 
@@ -657,10 +657,12 @@ Für einen Graphen mit der Menge $S = V$ und der Relation $R = E$ gilt: Es ist $
 
 \subsection{Warshall-Algorithmus}
 
+Der Warshall-Algorithmus ist die Basis für den Floyd-Algorithmus. Er berechnet die transitive Hülle eines Graphen.
 VL17 (10.08.2017)
 
 \subsection{Floyd-Algorithmus}
 
+\textit{Es gelten die Voraussetzungen aus 9.5.}
 VL17 (10.08.2017)
 
 \section{Matching}

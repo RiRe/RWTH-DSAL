@@ -482,7 +482,7 @@ Bei der Tiefensuche gibt es verschiedene Klassen von Kanten. Baum-Kanten treten 
 
 Die Zeitkomplexität der DFS ist $O(|V| + |E|)$, der Platzbedarf ist $\Theta(|V|)$.
 
-\subsection{Finden von Zusammenhangskomponenten}
+\subsection{Zusammenhangskomponenten in ungerichteten Graphen}
 
 Was tun wir, wenn wir alle Zusammenhangskomponenten eines ungerichteten Graphen bestimmen möchten?
 
@@ -493,19 +493,17 @@ Was tun wir, wenn wir alle Zusammenhangskomponenten eines ungerichteten Graphen 
 \item Wenn es weitere, unbesuchte Knoten gibt, Wiederholung des Verfahrens mit diesen
 \end{itemize}
 
+\subsection{Zusammenhangskomponenten in gerichteten Graphen}
+
+\textit{Wiederholung (7.2):} Es sei $G$ ein gerichteter Graph. $G$ heißt stark zusammenhängend, wenn jeder Knoten von jedem anderen Knoten aus erreichbar ist. Eine starke Zusammenhangskomponente von $G$ ist ein maximaler stark zusammenhängender Teilgraph von $G$.
+
+Die starken Zusammenhangskomponenten eines gerichteten Graphen induzieren den dazugehörigen \textit{Kondensationsgraphen}. Es sei $G = (V, E)$ ein gerichteter Graph mit $k$ starken Zusammenhangskomponenten $S_i = (V_i, E_i)$ für $1 \leq i \leq k$. Der Kondensationsgraph $G\downarrow$ $= (V', E')$ ist dann definiert durch $V' = {V_1, ..., V_k}$. Es ist $(V_i, V_j) \in E'$ gdw. $i \neq j$ und $\exists(v, w) \in E : v \in V_i \land w \in V_j$. Der Kondensationsgraph $G\downarrow$ ist azyklisch.
+
 \subsection{Erreichbarkeitsanalysen}
 
 Die Tiefensuche wurde bereits vor Jahrhunderten formal beschrieben als ein Verfahren zum Durchqueren von Labyrinthen. Ein Labyrinth lässt sich dabei als Graph darstellen: Die Stellen, an denen mehr als ein Weg gewählt werden kann, werden als Knoten dargestellt. Die Kanten sind die Wege zwischen den Knoten. Der Eingang ist ein spezieller Knoten \textit{start}, das Ziel ein spezieller Knoten \textit{target}.
 
 Das Problem (die Suche nach einem Weg von einem beliebigen Knoten zum Ausgang) lässt sich mit einer Tiefensuche lösen.
-
-\subsection{Zusammenhangskomponenten in ungerichteten Graphen}
-
-VL15 (10.08.2017)
-
-\subsection{Zusammenhangskomponenten in gerichteten Graphen}
-
-VL15 (10.08.2017)
 
 \subsection{Kosaraju-Sharir-Algorithmus}
 

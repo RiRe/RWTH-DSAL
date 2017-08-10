@@ -440,6 +440,16 @@ Ein Baum ist ein kreisfreier und zusammenhängender Graph. Hat ein Baum $n$ Knot
 
 \subsection{Repräsentation von Graphen}
 
+Es stellt sich die Frage, wie man einen Graphen als Datenstruktur am sinnvollsten repräsentiert. Hierzu gibt es verschiedene Möglichkeiten.\\
+
+\textbf{Adjazenzmatrix}
+
+Wir haben einen Graphen $G = (V, E)$ mit $|V| = n$, $|E| = m$ und $V = {v_1, ..., v_n}$. Dann ist der Graph in der Adjazenzmatrix-Darstellung gegeben durch eine $n \times n$-Matrix $A$ mit $A(i, j) = 1$ wenn $(v_i, v_j) \in E$ (und $0$ wenn nicht). Wenn $G$ ungerichtet ist, ist $A$ symmetrisch ($A^{tr} = A$), dann muss nur die Hälfte der Matrix gespeichert werden. Der Platzbedarf ist $\Theta(n^2)$.\\
+
+\textbf{Adjazenzliste}
+
+Wir können einen Graphen auch als Array von Adjazenzlisten darstellen. Dabei ist die Arrayposition gegeben durch die Nummer des Knotens $i$, an dieser Stelle enthält das Array eine verkettete Liste mit allen Kanten mit Startknoten $v_i$. Wenn G ungerichtet ist, wird jede Kante zweimal gespeichert. Der Platzbedarf ist $\Theta(n+m)$.
+
 VL14
 
 VL15

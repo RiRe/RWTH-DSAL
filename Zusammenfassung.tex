@@ -408,7 +408,7 @@ Sind $h_2$ und $m$ relativ prim, wird die gesamte Hashtabelle abgesucht. Man kan
 
 \subsection{Graphen}
 
-Graphen haben wir in der Vorlesung \textit{Diskrete Strukturen} definiert, diese bestehen aus dem Paar $(V, E)$ (Ecken/Knoten und Kanten). Die Kanten können gerichtet sein (eine Richtung haben) oder nicht - wir haben dann einen gerichteten bzw. ungerichteten Graphen.
+Graphen haben wir in der Vorlesung \textit{Diskrete Strukturen} definiert, diese bestehen aus dem Paar $(V, E)$ (Ecken/Knoten und Kanten). Die Kanten können gerichtet sein (eine Richtung haben) oder nicht - wir haben dann einen gerichteten bzw. ungerichteten Graphen. Einen gerichteten Graphen nennt man auch Digraph.
 
 Der Knoten $u$ ist adjazent zu Knoten $v$ gdw. $(u,v) \in E$ und inzident zu der Kante $e = (u,v)$. Der Grad $deg(u)$ ist die Anzahl der zu $u$ inzidenten Kanten. Wir definieren - insbesondere für gerichtete Graphen - ferner den In-Grad $deg^+(u)$ und den Aus-Grad $deg^-(u)$. Ein Graph ist $k$-regulär, wenn alle Knoten den Grad $k$ haben.
 
@@ -478,7 +478,14 @@ Die Zeitkomplexität der DFS ist $O(|V| + |E|)$, der Platzbedarf ist $\Theta(|V|
 
 \subsection{Finden von Zusammenhangskomponenten}
 
-TODO
+Was tun wir, wenn wir alle Zusammenhangskomponenten eines ungerichteten Graphen bestimmen möchten?
+
+\begin{itemize}
+\item Konstruktion des dazugehörigen symmetrischen, gerichteten Graphen
+\item Start der Tiefensuche bei einem beliebigen Knoten
+\item Suche aller anderen Knoten (und aller Kanten) in der selben Komponente mit DFS
+\item Wenn es weitere, unbesuchte Knoten gibt, Wiederholung des Verfahrens mit diesen
+\end{itemize}
 
 \subsection{VL15}
 

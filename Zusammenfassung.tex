@@ -672,10 +672,13 @@ Dann schauen wir für jeden Knoten einzeln, welche Knoten direkt von diesem aus 
 
 Nachdem wir das für alle Knoten gemacht haben (in der Regel machen wir das in aufsteigender Reihenfolge der Knotennummerierung), haben wir die transitive Hülle als Graph bzw. ihre Adjazenzmatrix.
 
+Die Zeitkomplexität das Warshall-Algorithmus ist $\Theta(|V|^3)$, die Platzkomplexität ist $\Theta(|V|^2)$.
+
 \subsection{Floyd-Algorithmus}
 
-\textit{Es gelten die Voraussetzungen aus 9.5.}
-VL17 (10.08.2017)
+\textit{Es gelten die Voraussetzungen aus 9.5.} Der Floyd-Algorithmus greift auf den Warshall-Algorithmus zurück, allerdings werden hier die Distanzen berücksichtigt (statt der Berechnung der linearen Hülle). Deshalb wird er auch als Floyd-Warshall-Algorithmus bezeichnet.
+
+Das Vorgehen ist wie bei Warshall, allerdings nutzen wir folgende Rekursionsgleichung für die Distanzen: Es ist $d_{ij}^{(0)} = W(i, j)$ und $d_{ij}^{(k)} = min \{d_{ij}^{(k-1)}, d_{ik}^{(k-1)} + d_{kj}^{(k-1)}\}$ für $k > 0$.
 
 \section{Matching}
 

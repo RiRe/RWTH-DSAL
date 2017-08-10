@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.7.6)  10 AUG 2017 17:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.7.6)  10 AUG 2017 17:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -792,11 +792,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [1{c:/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
-])
+] [2])
 \tf@toc=\write3
 \openout3 = `Zusammenfassung.toc'.
 
- [2]
+ [3]
 Underfull \hbox (badness 10000) in paragraph at lines 75--76
 
  []
@@ -957,7 +957,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 586--587
 
  []
 
-[17] [18] (./Zusammenfassung.aux)
+[17] [18] [19] (./Zusammenfassung.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -985,10 +985,10 @@ public/lm/lmr8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/lm/lmss12.pfb
 s/type1/public/lm/lmsy10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/lm/
 lmsy6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/texli
 ve/2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Zusammenfassung.pdf (20 pages, 230119 bytes).
+Output written on Zusammenfassung.pdf (22 pages, 231210 bytes).
 PDF statistics:
- 130 PDF objects out of 1000 (max. 8388607)
- 93 compressed objects within 1 object stream
+ 136 PDF objects out of 1000 (max. 8388607)
+ 97 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

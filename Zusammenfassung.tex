@@ -531,7 +531,11 @@ Eine Kante $(v, w)$ besagt $v < w$. Da eine partielle Ordnung nach der Vorlesung
 
 \subsection{Topologisches Sortieren}
 
-VL15 (10.08.2017)
+Es sei $G = (V, E)$ ein gerichteter Graph mit $n$ Knoten. Eine topologische Ordnung von $G$ ist eine Nummerierung der Knoten. topo$: V \rightarrow \{1, ..., n\}$, sodass $topo(v) > topo(w)$ für jede Kante $(v, w) \in E$ gilt. Eine topologische Ordnung ist die Einbettung einer partiellen Ordnung in eine totale (lineare) Ordnung.
+
+Für einen Digraphen G mit einem Kreis existiert keine topologische Ordnung. Jeder DAG hat mindestens eine topologische Ordnung.
+
+Eine topologische Ordnung kann in $\Theta(|V| + |E|)$ bestimmt werden.
 
 \subsection{Gewichtete Graphen}
 

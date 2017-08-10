@@ -563,7 +563,17 @@ Wir können einen Eulerkreis in einem Graphen $G = (V, E)$ in $O(|V| + |E|)$ Zei
 
 \section{Minimale Spannbäume}
 
-VL16 (10.08.2017)
+\subsection{Spannbäume}
+
+Ein Spannbaum eines ungerichteten, zusammenhängenden Graphen $G = (V, E)$ ist ein Teilgraph von $G$, der ein ungerichteter Baum ist und alle Knoten von $G$ enthält. Übrigens ist ein Baum maximal kreisfrei und minimal zusammenhängend. Fügt man eine Kante zu einem Baum hinzu, so entsteht ein Kreis. Löscht man eine Kante eines Baumes, so erhält man zwei Zusammenhangskomponenten.
+
+Der vollständige Graph mit $n$ Knoten hat $n^{n-2}$ Spannbäume.
+
+\subsection{Prüfer-Code}
+
+Für Bäume gibt es einen sogenannten \textit{Prüfer-Code}, in diesen können wir einen Baum übersetzen.
+
+Um einen Baum in einen Prüfer-Code zu übersetzen, müssen wir iterativ das \textbf{Blatt} $x$ mit kleinster Nummer bestimmen, $x$ zusammen mit der inzidenten Kante $(x, y)$ löschen und $y$ im Tupel speichern. Fertig sind wir, wenn nur noch eine Kante übrig ist. Übrigens: Ein Knoten mit Grad $d$ kommt $(d-1)$-mal im Prüfer-Code vor.
 
 \section{Kürzeste Pfade}
 

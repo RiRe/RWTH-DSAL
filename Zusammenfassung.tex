@@ -539,7 +539,13 @@ Eine topologische Ordnung kann in $\Theta(|V| + |E|)$ bestimmt werden.
 
 \subsection{Gewichtete Graphen}
 
-VL15 (10.08.2017)
+Ein knotengewichteter Graph $G$ ist ein Tripel $(V, E, w)$, wobei $(V, E)$ ein Graph ist. Zusätzlich ist $w : V \rightarrow \mathbb{R}$ die Gewichtsfunktion und $w(v)$ mit $v \in V$ das Gewicht des Knotens $v$.
+
+Ein kantengewichteter Graph $G$ ist ein Tripel $(V, E, w)$, wobei $(V, E)$ ein Graph ist. Zusätzlich ist $w : E \rightarrow \mathbb{R}$ die Gewichtsfunktion und $w(e)$ mit $e \in V$ das Gewicht der Kante $e$.
+
+Wir können einen knotengewichteten Graphen $(V, E, w)$ in einen kantengewichteten Graphen $(V, E, w')$ überführen, indem alle von einem Knoten $v$ ausgehenden Kanten $e = (v, -) \in E$ das Gewicht $w'(e) = w(v)$ erhalten.\\
+
+Auch gewichtete Graphen können wir durch eine Adjazenzliste oder -matrix darstellen. Bei knotengewichteten Graphen speichern wir die Zusatzinformation zu den Knoten üblicherweise in einem weiteren Array. Kantengewichte können bei der Matrixdarstellung direkt in der Matrix gespeichert werden (ein besonderer Wert, etwa $\infty$, besagt, dass keine Kante existiert).
 
 \subsection{Kritische-Pfad-Problem}
 

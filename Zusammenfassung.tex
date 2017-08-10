@@ -657,8 +657,11 @@ Für einen Graphen mit der Menge $S = V$ und der Relation $R = E$ gilt: Es ist $
 
 \subsection{Warshall-Algorithmus}
 
-Der Warshall-Algorithmus ist die Basis für den Floyd-Algorithmus. Er berechnet die transitive Hülle eines Graphen.
-VL17 (10.08.2017)
+Der Warshall-Algorithmus ist die Basis für den Floyd-Algorithmus. Er berechnet die transitive Hülle eines Graphen. Dazu wird zuerst die Reflexivität erstellt - im Graphen wird so bei jedem Knoten eine Schleife hinzugefügt (sofern noch keine vorhanden ist), in der Adjazenzmatrix wird die Diagonale mit Einsen gefüllt.
+
+Dann schauen wir für jeden Knoten einzeln, welche Knoten direkt von diesem aus erreichbar sind. Das machen wir rekursiv für die erreichbaren Knoten und fügen die entsprechenden direkten Kanten vom ursprünglichen Knoten zum über den neuen Knoten erreichbaren Knoten hinzu bzw. schreiben die entsprechende Eins in die Matrix.
+
+Nachdem wir das für alle Knoten gemacht haben (in der Regel machen wir das in aufsteigender Reihenfolge der Knotennummerierung), haben wir die transitive Hülle als Graph bzw. ihre Adjazenzmatrix.
 
 \subsection{Floyd-Algorithmus}
 

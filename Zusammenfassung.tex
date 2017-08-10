@@ -14,6 +14,15 @@
 \usepackage{listings}
 \usepackage{graphicx,colordvi,color}
 \usepackage{csquotes}
+\usepackage{hyperref}
+
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
 
 %Seitenraender
 \usepackage{geometry}
@@ -66,27 +75,27 @@ Seien f, g: $\mathbb{N} \to \mathbb{R}$ differenzierbare Funktionen mit \(\lim\l
 
 Dann gilt: \(\lim\limits_{n \to \infty}\frac{g(n)}{f(n)}=\lim\limits_{n \to \infty}\frac{g'(n)}{f'(n)}\)
 
-\subsection{Die Klasse Gross-O}
+\subsection{Die Klasse Gross-$\mathcal O$}
 
-$O(f)$ ist die Menge von Funktionen, die \textbf{nicht schneller} als die Funktion $f$ wachsen.
+$\mathcal O(f)$ ist die Menge von Funktionen, die \textbf{nicht schneller} als die Funktion $f$ wachsen.
 
 Diese Eigenschaft gilt ab einer Konstanten $n_0$, Werte unter $n_0$ werden vernachlässigt.
 
-$g \in O(n^2)$ sagt mehr aus als $g \in O(n^3)$.\\
+$g \in \mathcal O(n^2)$ sagt mehr aus als $g \in \mathcal O(n^3)$.\\
 
-\textbf{Beispiel}: $g \in O(f)$ heißt, dass $c \cdot{} f(n)$ eine obere Schranke für $g(n)$ ist.\\
+\textbf{Beispiel}: $g \in \mathcal O(f)$ heißt, dass $c \cdot{} f(n)$ eine obere Schranke für $g(n)$ ist.\\
 
-$O(cf(n)) = O(f(n))$
+$\mathcal O(cf(n)) = \mathcal O(f(n))$
 
-$O(f(n)) + O(g(n)) = O(f(n) + g(n))$
+$\mathcal O(f(n)) + \mathcal O(g(n)) = \mathcal O(f(n) + g(n))$
 
-$O(f(n)) + O(g(n)) = O($max \{$f(n), g(n)$\}$)$
+$\mathcal O(f(n)) + \mathcal O(g(n)) = \mathcal O($max \{$f(n), g(n)$\}$)$
 
-$O(f(n))O(g(n)) = O(f(n)g(n))$
+$\mathcal O(f(n))\mathcal O(g(n)) = \mathcal O(f(n)g(n))$
 
-$f(O(1)) = O(1)$ (das ist jetzt weder formal korrekt noch irgendwie sinnvoll, aber es stand da so)\\
+$f(\mathcal O(1)) = \mathcal O(1)$ (das ist jetzt weder formal korrekt noch irgendwie sinnvoll, aber es stand da so)\\
 
-$\sum_{k=1}^n O(f(k))$ $\subseteq O(nf(n))$, wenn $f(n)$ monoton steigt
+$\sum_{k=1}^n \mathcal O(f(k))$ $\subseteq \mathcal O(nf(n))$, wenn $f(n)$ monoton steigt
 
 \subsection{Die Klasse Gross-Omega}
 
@@ -108,7 +117,7 @@ Diese Eigenschaft gilt ab einer Konstanten $n_0$, Werte unter $n_0$ werden verna
 
 $g \in \Theta(f)$ wenn \(\lim\limits_{n \to \infty}\frac{g(n)}{f(n)}=c\) für ein $0 < c < \infty$
 
-$g \in \Theta(f)$ gdw. $g \in O(f)$ und $g \in \Omega(f)$
+$g \in \Theta(f)$ gdw. $g \in \mathcal O(f)$ und $g \in \Omega(f)$
 
 \subsection{Die Klasse Klein-O und Klein-Omega}
 
@@ -120,19 +129,19 @@ $f \in o(g)$ gdw. $g \in \omega(f)$
 
 \subsection{Elementare Eigenschaften}
 
-\textbf{Reflexivität}: $f \in O(f)$, $f \in \Omega(f)$, $f \in \Theta(f)$
+\textbf{Reflexivität}: $f \in \mathcal O(f)$, $f \in \Omega(f)$, $f \in \Theta(f)$
 
-\textbf{Transitivität}: Aus $f \in O/\Omega/\Theta(g)$ und $g \in O/\Omega/\Theta(h)$ folgt $f \in O/\Omega/\Theta(h)$.
+\textbf{Transitivität}: Aus $f \in \mathcal O/\Omega/\Theta(g)$ und $g \in O/\Omega/\Theta(h)$ folgt $f \in \mathcal O/\Omega/\Theta(h)$.
 
 \textbf{Symmetrie von $\Theta$}: $f \in \Theta(g)$ gdw. $g \in \Theta(f)$
 
-\textbf{Beziehung zwischen O und $\Omega$}: $f \in O(g)$ gdw. $g \in \Omega(f)$
+\textbf{Beziehung zwischen $\mathcal O$ und $\Omega$}: $f \in \mathcal O(g)$ gdw. $g \in \Omega(f)$
 
 \subsection{Platzkomplexität}
 
 Wir definieren $S(n)$ als Platzkomplexität.
 
-Bei der Speicherung eines Liedes ist $S(n) \in O(n)$ und $S(n) \in \Omega(1)$.
+Bei der Speicherung eines Liedes ist $S(n) \in \mathcal O(n)$ und $S(n) \in \Omega(1)$.
 
 \section{Suchalgorithmen}
 
@@ -140,7 +149,7 @@ Bei der Speicherung eines Liedes ist $S(n) \in O(n)$ und $S(n) \in \Omega(1)$.
 
 Array wird aus beiden Richtungen \enquote{gleichzeitig} durchsucht.
 
-Zeitkomplexität wie bei linearer Suche $O(n)$.
+Zeitkomplexität wie bei linearer Suche $\mathcal O(n)$.
 
 \subsection{Binäre Suche}
 
@@ -148,7 +157,7 @@ Sortiertes Array $E$ mit $n$ Elementen, gesucht ist das Element $K$.
 
 Wir beginnen in der Mitte und \textbf{halbieren} den Suchraum in jedem Durchlauf.
 
-Zeitkomplexität ist $O($log $n)$, allerdings ist die Initialisierung mit $O(n $ log $ n)$ aufwändig.
+Zeitkomplexität ist $\mathcal O($log $n)$, allerdings ist die Initialisierung mit $\mathcal O(n $ log $ n)$ aufwändig.
 
 \section{Rekursionsgleichungen}
 
@@ -156,11 +165,11 @@ Zeitkomplexität ist $O($log $n)$, allerdings ist die Initialisierung mit $O(n $
 
 $T(n) = b \cdot{} T(\frac{n}{c}) + f(n)$ mit $b \geq 1$ und $c > 1$
 
-Anzahl der Blätter im Rekursionsbaum: $n^E$ mit $E = \frac{log(b)}{log(c)} = $ log$_c(b)$\\
+Anzahl der Blätter im Rekursionsbaum: $n^E$ mit $E = \frac{\log(b)}{\log(c)} = $ log$_c(b)$\\
 
 \textbf{Fall 1}
 
-Bedingung: $f(n) \in O(n^{E-\epsilon})$ für ein $\epsilon > 0$
+Bedingung: $f(n) \in \mathcal O(n^{E-\epsilon})$ für ein $\epsilon > 0$
 
 Es folgt: $T(n) \in \Theta(n^E)$\\
 
@@ -200,9 +209,9 @@ Sie lösen die Teilprobleme rekursiv und kombinieren diese Lösungen dann, um di
 
 Array wird in zwei möglichst gleich große Hälften geteilt, die durch rekursive Mergesort-Aufrufe sortiert werden.
 
-Es ist $W(n) = B(n) = A(n) \in \Theta(n \cdot{} log(n))$.
+Es ist $W(n) = B(n) = A(n) \in \Theta(n \cdot{} \log(n))$.
 
-Speicherbedarf $\Theta(n)$ für die Kopie des Arrays und $\Theta(log(n))$ für die Verwaltung der Rekursion.
+Speicherbedarf $\Theta(n)$ für die Kopie des Arrays und $\Theta(\log(n))$ für die Verwaltung der Rekursion.
 
 \subsection{Heaps}
 
@@ -217,7 +226,7 @@ Ein Heap ist ein Binärbaum, der Elemente mit Schlüsseln enthält. Für \textbf
 
 Heaps lassen sich in Arrays einbetten, dabei liegt die Wurzel in $a[0]$, das linke Kind von $a[i]$ in $a[2\cdot{}i+1]$ und das rechte Kind in $a[2\cdot{}i+2]$.
 
-Die Höhe eines Heaps in Abhängigkeit von seinen Elementen ist gegeben durch $H = \lfloor{}log_2(n)\rfloor$. Es ist $H \in O($log $n)$.
+Die Höhe eines Heaps in Abhängigkeit von seinen Elementen ist gegeben durch $H = \lfloor{}log_2(n)\rfloor$. Es ist $H \in \mathcal O($log $n)$.
 
 Für die Anzahl der Knoten im linken Teilbaum $l$ und die Knotenzahl im rechten Teilbaum $r$ gilt stets: $r \leq l \leq 2r + 1$.
 
@@ -229,7 +238,7 @@ Im Max-Heap enthält die Wurzel immer die größte Ziffer, deshalb tauschen wir 
 
 Dieses Verfahren wird rekursiv angewendet, indem das letzte, sortierte Element gestrichen wird. Anschließend muss wieder ein Max-Heap aufgebaut werden und wir beginnen von vorne, bis im Heap keine Elemente mehr enthalten sind, sodass das Array sortiert ist.\\
 
-Auch Heapsort hat eine Laufzeitkomplexität von $O(n\cdot{}log(n))$, der Speicherplatzbedarf ist konstant. Heapsort ist ein Inplace-Sortieralgorithmus und nicht stabil.
+Auch Heapsort hat eine Laufzeitkomplexität von $\mathcal O(n\cdot{}\log(n))$, der Speicherplatzbedarf ist konstant. Heapsort ist ein Inplace-Sortieralgorithmus und nicht stabil.
 
 \subsection{Prioritätswarteschlange}
 
@@ -239,13 +248,13 @@ Elemente werden mit Schlüsseln versehen, wobei jeder Schlüssel höchstens an e
 
 Wir wählen ein beliebigies Pivotelement und teilen das Array danach in zwei Teile - der linke Teil enthält Elemente, die kleiner als das Pivotelement sind, der rechte Teil enthält Elemente, die mindestens so groß sind wie das Pivotelement, allerdings nicht das Pivotelement selbst. Das wiederholen wir rekursiv. Die Pivotelemente sind am Ende in korrekter Reihenfolge.\\
 
-Die Platzkomplexität von Quicksort ist $\Theta(log(n))$, es ist $W(n) \in \Theta(n^2)$, $B(n) \in O(n\cdot{}log(n))$ und $A(n) \in O(n\cdot{}log(n))$.
+Die Platzkomplexität von Quicksort ist $\Theta(\log(n))$, es ist $W(n) \in \Theta(n^2)$, $B(n) \in \mathcal O(n\cdot{}\log(n))$ und $A(n) \in \mathcal O(n\cdot{}\log(n))$.
 
 \subsection{Bubblesort}
 
 Es werden alle nebeneinanderstehenden Paare in der Liste vertauscht, die momentan in der falschen Ordnung stehen. Die Liste rechts von der letzten Tauschposition des letzten Durchgangs ist dabei stets bereits sortiert. Sobald keine Änderungen mehr auftreten, ist der Algorithmus fertig - ansonsten muss der Algorithmus erneut durchlaufen.\\
 
-Damit ist $W(n) \in O(n^2)$.
+Damit ist $W(n) \in \mathcal O(n^2)$.
 
 \subsection{Countingsort}
 
@@ -255,7 +264,7 @@ Nun gehen wir das zu sortierende Array durch. Für jedes Element im Array wird d
 
 Abschließend gehen wir das unsortierte Array von hinten nach vorne durch. Bei jedem Element des unsortierten Arrays steht nun die neue, sortierte Position des Elements im Counting-Array. Bei jedem Einfügen eines Elements muss der zu diesem Element gehörige Wert im Counting-Array um 1 dekrementiert werden.
 
-Die Laufzeit von Countingsort ist $\in O(n+B)$, der Speicherbedarf $\in O(n+B)$.
+Die Laufzeit von Countingsort ist $\in \mathcal O(n+B)$, der Speicherbedarf $\in \mathcal O(n+B)$.
 
 \section{Elementare Datenstrukturen}
 
@@ -297,7 +306,7 @@ Durch die Rotation bleibt ein BST weiterhin ein BST, auch die Inorder-Traversier
 
 Ein AVL-Baum ist ein balanzierter BST, bei dem sich für jeden Knoten die Höhen der beiden Teilbäume um höchstens 1 unterscheiden - die Höhe der Teilbäume wird balanziert. Es gibt ein zusätzliches Datenfeld für jeden Knoten, in dem über die Höhe des Unterbaums Buch geführt wird.
 
-Nach jeder Operation muss die Bilanz des AVL-Baums wiederhergestellt werden, dies ist in $\Theta{h}$ möglich. Dadurch ist stets $h \in \Theta{log(n)}$ gewährleistet, $\Theta{log(n)}$ kann für alle Operationen auf dem Baum garantiert werden.
+Nach jeder Operation muss die Bilanz des AVL-Baums wiederhergestellt werden, dies ist in $\Theta(h)$ möglich. Dadurch ist stets $h \in \Theta(\log(n))$ gewährleistet, $\Theta(\log(n))$ kann für alle Operationen auf dem Baum garantiert werden.
 
 Es kann - wie bereits angerissen - passieren, dass der AVL-Baum nach dem Einfügen eines Knotens unbalanziert ist und die Bedingungen damit verletzt sind. Dann muss der  Baum neu balanziert werden. Dafür gibt es folgende Regeln:
 
@@ -334,7 +343,7 @@ Auch das Löschen von schwarzen Knoten in einem RBT ist problematisch, weil dadu
 \item Hat der zu löschende Knoten keine Kinder, muss der Onkel und der Vater unter Beachtung der Schwarzhöhe umgefärbt werden. Die eventuell dadurch entstehenden Farbverletzungen müssen iterativ behoben werden.
 \end{enumerate}
 
-Die Laufzeit der Algorithmen für Einfügen und Löschen liegt in $\Theta(log(n))$, alle anderen Operationen sind mit denen in einem BST algorithmisch und bezüglich der Laufzeit identisch.
+Die Laufzeit der Algorithmen für Einfügen und Löschen liegt in $\Theta(\log(n))$, alle anderen Operationen sind mit denen in einem BST algorithmisch und bezüglich der Laufzeit identisch.
 
 \section{Hashing}
 
@@ -460,7 +469,7 @@ Wir können einen Graphen auch als Array von Adjazenzlisten darstellen. Dabei is
 
 Viele Algorithmen untersuchen jeden einzelnen Knoten und jede einzelne Kante eines Graphen. Dazu gibt es verschiedene Graphendurchlaufstrategien, die jeden Knoten (oder jede Kante) genau einmal besuchen: Die Breitensuche (BFS) und die Tiefensuche (DFS). Dabei handelt es sich im Wesentlichen um Verallgemeinerungen der Strategien zur Baumtraversierung.
 
-Allerdings müssen wir uns alle bereits besuchten Knoten explizit merken. Wir arbeiten mit der Adjazenzlisten-Darstellung, Algorithmen auf dieser Basis kosten $O(|V| + |E|)$ Zeit.\\
+Allerdings müssen wir uns alle bereits besuchten Knoten explizit merken. Wir arbeiten mit der Adjazenzlisten-Darstellung, Algorithmen auf dieser Basis kosten $\mathcal O(|V| + |E|)$ Zeit.\\
 
 \textbf{Breitensuche}
 
@@ -470,7 +479,7 @@ Für einen Knoten $v \in V$ bezeichnet $d(v)$ den Abstand vom Startknoten zum Kn
 
 BFS besucht die Knoten also in einer Reihenfolge mit ansteigendem Abstand vom Startknoten. Erst wenn alle Knoten mit Abstand $d$ verarbeitet sind, werden die Knoten mit Abstand $d+1$ angegangen. Die Suche terminiert, wenn für einen Abstand $d$ keine Knoten auftreten. Die zu verarbeitenden Knoten werden als FIFO-Queue organisiert, es gibt nur eine einzige Verarbeitungsmöglichkeit für $v$ (wenn es aus der Queue entnommen wird). Die gelben Kanten induzieren den Breitensuchbaum, der den Startknoten als Wurzel hat.
 
-Die Zeitkomplexität der BFS ist $O(|V| + |E|)$, der Platzbedarf ist $\Theta(|V|)$.\\
+Die Zeitkomplexität der BFS ist $\mathcal O(|V| + |E|)$, der Platzbedarf ist $\Theta(|V|)$.\\
 
 \textbf{Tiefensuche}
 
@@ -480,7 +489,7 @@ Die Tiefensuche erforscht also einen Pfad so weit wie möglich und setzt dann zu
 
 Bei der Tiefensuche gibt es verschiedene Klassen von Kanten. Baum-Kanten treten im DFS-Baum auf. Rückwärts-Kanten gehen von Knoten $u$ zum Vorfahren $v$, Vorwärts-Kanten gehen von einem Vorfahren $v$ zu einem Knoten $u$. Alle restlichen Kanten sind Quer-Kanten. In einem ungerichteten Graphen ist jede Kante entweder Baum-Kante oder Rückwärts-Kante.\\
 
-Die Zeitkomplexität der DFS ist $O(|V| + |E|)$, der Platzbedarf ist $\Theta(|V|)$.
+Die Zeitkomplexität der DFS ist $\mathcal O(|V| + |E|)$, der Platzbedarf ist $\Theta(|V|)$.
 
 \subsection{Zusammenhangskomponenten in ungerichteten Graphen}
 
@@ -521,7 +530,7 @@ Der Kosaraju-Sharir-Algorithmus findet starke Komponenten in einem gerichteten G
 
 Ein Knoten $v$ heißt \enquote{Leiter} (lt. Vorlesung, besser \enquote{Anführer}, da engl. leader lt. VL), wenn er als letzter Knoten in seiner SCC bei der DFS BLACK gefärbt wird.
 
-Die Worst-Zeit-Komplexität des Kosaraju-Sharir-Algorithmus ist $\Theta(|V| + |E|)$, die Speicherkomplexität ist $\Theta{|V|}$.
+Die Worst-Zeit-Komplexität des Kosaraju-Sharir-Algorithmus ist $\Theta(|V| + |E|)$, die Speicherkomplexität ist $\Theta(|V|)$.
 
 \subsection{Gerichtete azyklische Graphen (DAGs)}
 
@@ -559,7 +568,7 @@ Ein ungerichteter Graph $G$ besitzt einen eulerschen Kreis gdw. jeder Knoten ein
 
 Ein gerichteter Graph $G$ besitzt einen eulerschen Kreis gdw. der Eingangsgrad jedes Knotens dem Ausgangsgrad entspricht und $G$ (stark oder schwach) zusammenhängend ist.
 
-Wir können einen Eulerkreis in einem Graphen $G = (V, E)$ in $O(|V| + |E|)$ Zeit berechnen.
+Wir können einen Eulerkreis in einem Graphen $G = (V, E)$ in $\mathcal O(|V| + |E|)$ Zeit berechnen.
 
 \section{Minimale Spannbäume}
 
@@ -631,7 +640,7 @@ Wir sind fertig, wenn keine Verbesserungen mehr möglich sind. Gibt es nach $|V|
 
 Der Algorithmus speichert zusätzlich die Vorgängerknoten entlang eines kürzesten Pfades im Array $prev$, sodass sich so nach Terminierung die kürzesten Pfade rekonstruieren lassen.
 
-Die Zeitkomplexität des Algorithmus ist gegeben durch $O(|V|\cdot{}|E|)$.
+Die Zeitkomplexität des Algorithmus ist gegeben durch $\mathcal O(|V|\cdot{}|E|)$.
 
 \subsection{Dijkstra-Algorithmus}
 
@@ -639,13 +648,13 @@ Dijkstra arbeitet im Gegensatz zu Bellman und Ford nur mit nicht-negativen Kante
 
 Wir beginnen mit unserem Startknoten $s$, dieser hat $dist[s] = 0$. Alle anderen Knoten $v \in V \setminus \{s\}$ haben $dist[v] = \infty$. Der Startknoten wird schwarz gefärbt, er ist Teil unseres (Hilfs-)Baums. Wir betrachten nun alle Randkanten $(s, v) \in E$ und suchen die Kante mit dem geringsten Kantengewicht. Sodann fügen wir den neuen Zielknoten $v$ zum Baum hinzu, indem wir ihn ebenfalls schwarz färben. Wir betrachten nun iterativ die Randkanten unseres Baums und suchen immer wieder die billigste Kante (dabei muss auf die Summe geachtet werden, es dürfen ferner keine Zyklen entstehen). Entsprechend füllen wir $dist[v]$ für $v \in V$, bis alle Knoten im Baum sind.
 
-Der Dijkstra-Algorithmus findet die kürzesten Wege mit zunehmenden Abstand zur Quelle $s$, die Implementierung ist ähnlich zum Spannbaum-Algorithmus von Prim (8.4). Die Zeitkomplexität im Worst-Case ist $\in \Theta(|V|^2)$, ferner ist die untere Schranke $\Omega(|E|)$. Wir haben eine Platzkomplexität von $O(|V|)$.
+Der Dijkstra-Algorithmus findet die kürzesten Wege mit zunehmenden Abstand zur Quelle $s$, die Implementierung ist ähnlich zum Spannbaum-Algorithmus von Prim (8.4). Die Zeitkomplexität im Worst-Case ist $\in \Theta(|V|^2)$, ferner ist die untere Schranke $\Omega(|E|)$. Wir haben eine Platzkomplexität von $\mathcal O(|V|)$.
 
 \subsection{All-Pairs Shortest Paths}
 
 Wir betrachten gewichtete, gerichtete Graphen $G = (V, E, W)$. Dabei sind negative Gewichte zwar erlaubt, aber keine Kreise mit negativen Gewicht. Nicht vorhandene Kanten haben das Gewicht $W(-,=) = \infty$. Wir möchten nun für jedes Paar $(i, j)$ das Gewicht $D[i,j]$ des kürzesten Pfades berechnen.
 
-Man kann nun einen SSSP-Algorithmus (z.B. Bellman-Ford) $|V|$-mal anwenden, das führt allerdings zu einer Worst-Case-Zeitkomplexität von $O(|V|^4)$. Im Folgenden werden wir effizientere Algorithmen für das APSP-Problem kennenlernen.
+Man kann nun einen SSSP-Algorithmus (z.B. Bellman-Ford) $|V|$-mal anwenden, das führt allerdings zu einer Worst-Case-Zeitkomplexität von $\mathcal O(|V|^4)$. Im Folgenden werden wir effizientere Algorithmen für das APSP-Problem kennenlernen.
 
 \subsection{Binäre Relationen}
 

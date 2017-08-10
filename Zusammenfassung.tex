@@ -156,7 +156,7 @@ Zeitkomplexität ist $O($log $n)$, allerdings ist die Initialisierung mit $O(n $
 
 $T(n) = b \cdot{} T(\frac{n}{c}) + f(n)$ mit $b \geq 1$ und $c > 1$
 
-Anzahl der Blätter im Rekursionsbaum: $n^E$ mit $E = \frac{log(b)}{log(c)} = $ log$_c(b)$\\
+Anzahl der Blätter im Rekursionsbaum: $n^E$ mit $E = \frac{\log(b)}{\log(c)} = $ log$_c(b)$\\
 
 \textbf{Fall 1}
 
@@ -200,9 +200,9 @@ Sie lösen die Teilprobleme rekursiv und kombinieren diese Lösungen dann, um di
 
 Array wird in zwei möglichst gleich große Hälften geteilt, die durch rekursive Mergesort-Aufrufe sortiert werden.
 
-Es ist $W(n) = B(n) = A(n) \in \Theta(n \cdot{} log(n))$.
+Es ist $W(n) = B(n) = A(n) \in \Theta(n \cdot{} \log(n))$.
 
-Speicherbedarf $\Theta(n)$ für die Kopie des Arrays und $\Theta(log(n))$ für die Verwaltung der Rekursion.
+Speicherbedarf $\Theta(n)$ für die Kopie des Arrays und $\Theta(\log(n))$ für die Verwaltung der Rekursion.
 
 \subsection{Heaps}
 
@@ -229,7 +229,7 @@ Im Max-Heap enthält die Wurzel immer die größte Ziffer, deshalb tauschen wir 
 
 Dieses Verfahren wird rekursiv angewendet, indem das letzte, sortierte Element gestrichen wird. Anschließend muss wieder ein Max-Heap aufgebaut werden und wir beginnen von vorne, bis im Heap keine Elemente mehr enthalten sind, sodass das Array sortiert ist.\\
 
-Auch Heapsort hat eine Laufzeitkomplexität von $O(n\cdot{}log(n))$, der Speicherplatzbedarf ist konstant. Heapsort ist ein Inplace-Sortieralgorithmus und nicht stabil.
+Auch Heapsort hat eine Laufzeitkomplexität von $O(n\cdot{}\log(n))$, der Speicherplatzbedarf ist konstant. Heapsort ist ein Inplace-Sortieralgorithmus und nicht stabil.
 
 \subsection{Prioritätswarteschlange}
 
@@ -239,7 +239,7 @@ Elemente werden mit Schlüsseln versehen, wobei jeder Schlüssel höchstens an e
 
 Wir wählen ein beliebigies Pivotelement und teilen das Array danach in zwei Teile - der linke Teil enthält Elemente, die kleiner als das Pivotelement sind, der rechte Teil enthält Elemente, die mindestens so groß sind wie das Pivotelement, allerdings nicht das Pivotelement selbst. Das wiederholen wir rekursiv. Die Pivotelemente sind am Ende in korrekter Reihenfolge.\\
 
-Die Platzkomplexität von Quicksort ist $\Theta(log(n))$, es ist $W(n) \in \Theta(n^2)$, $B(n) \in O(n\cdot{}log(n))$ und $A(n) \in O(n\cdot{}log(n))$.
+Die Platzkomplexität von Quicksort ist $\Theta(\log(n))$, es ist $W(n) \in \Theta(n^2)$, $B(n) \in O(n\cdot{}\log(n))$ und $A(n) \in O(n\cdot{}\log(n))$.
 
 \subsection{Bubblesort}
 
@@ -297,7 +297,7 @@ Durch die Rotation bleibt ein BST weiterhin ein BST, auch die Inorder-Traversier
 
 Ein AVL-Baum ist ein balanzierter BST, bei dem sich für jeden Knoten die Höhen der beiden Teilbäume um höchstens 1 unterscheiden - die Höhe der Teilbäume wird balanziert. Es gibt ein zusätzliches Datenfeld für jeden Knoten, in dem über die Höhe des Unterbaums Buch geführt wird.
 
-Nach jeder Operation muss die Bilanz des AVL-Baums wiederhergestellt werden, dies ist in $\Theta(h)$ möglich. Dadurch ist stets $h \in \Theta(log(n))$ gewährleistet, $\Theta(log(n))$ kann für alle Operationen auf dem Baum garantiert werden.
+Nach jeder Operation muss die Bilanz des AVL-Baums wiederhergestellt werden, dies ist in $\Theta(h)$ möglich. Dadurch ist stets $h \in \Theta(\log(n))$ gewährleistet, $\Theta(\log(n))$ kann für alle Operationen auf dem Baum garantiert werden.
 
 Es kann - wie bereits angerissen - passieren, dass der AVL-Baum nach dem Einfügen eines Knotens unbalanziert ist und die Bedingungen damit verletzt sind. Dann muss der  Baum neu balanziert werden. Dafür gibt es folgende Regeln:
 
@@ -334,7 +334,7 @@ Auch das Löschen von schwarzen Knoten in einem RBT ist problematisch, weil dadu
 \item Hat der zu löschende Knoten keine Kinder, muss der Onkel und der Vater unter Beachtung der Schwarzhöhe umgefärbt werden. Die eventuell dadurch entstehenden Farbverletzungen müssen iterativ behoben werden.
 \end{enumerate}
 
-Die Laufzeit der Algorithmen für Einfügen und Löschen liegt in $\Theta(log(n))$, alle anderen Operationen sind mit denen in einem BST algorithmisch und bezüglich der Laufzeit identisch.
+Die Laufzeit der Algorithmen für Einfügen und Löschen liegt in $\Theta(\log(n))$, alle anderen Operationen sind mit denen in einem BST algorithmisch und bezüglich der Laufzeit identisch.
 
 \section{Hashing}
 

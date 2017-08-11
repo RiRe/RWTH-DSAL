@@ -744,7 +744,21 @@ Sei $f^*$ der durch die Ford-Fulkerson-Methode bestimmte Fluss zu einem integral
 
 Ein Schnitt $(S, T)$ in einem Flussnetzwerk $G= (V, E, c)$ ist eine Partition $S \cup T = V, S \cap T = \emptyset$ mit $s \in S$ und $t \in T$. Wenn $f$ ein Fluss in $G$ ist, dann ist $f(S, T)$ der Fluss über $(S, T)$. Die Kapazität von $(S, T)$ ist $c(S, T)$. Ein minimaler Schnitt ist ein Schnitt mit minimaler Kapazität. Für den Fluss über einen Schnitt gilt stets $f(S, T) = |f|$.
 
-VL19 (11.08.2017)
+\subsection{Max-flow Min-cut Theorem}
+
+Das Max-flow min-cut Theorem besagt für einen Fluss $f$ im Flussnetzwerk $G=(V,E,c)$, dass folgende Sätze äquivalent sind:
+
+\begin{enumerate}
+\item $f$ ist ein maximaler Fluss.
+\item Im Restnetzwerk $G_f$ gibt es keinen augmentierenden Pfad.
+\item $|f| = c(S, T)$ für einen Schnitt $(S, T)$, d.h. $(S, T)$ ist minimal.
+\end{enumerate}
+
+Damit ist die Kapazität eines minimalen Schnittes (min cut) gleich dem Wert eines maximalen Flusses (max flow). Mit diesem Theorem lässt sich auch die Korrektheit der Ford-Fulkerson-Methode zeigen.
+
+\subsection{Edmonds-Karp-Algorithmus}
+
+Der Edmonds-Karp-Algorithmus übernimmt die Ford-Fulkerson-Methode, wählt den augmentierenden Pfad aber nicht beliebig, sondern nutzt zur Bestimmung der Pfade eine Breitensuche. Damit präferiert der Algorithmus kürzere Pfade gegenüber längeren - er erweitert den Fluss stets entlang kürzester Pfade. Die Laufzeit liegt in $\mathcal O(|V|\cdot|E|^2)$.
 
 \section{Dynamische Programmierung}
 

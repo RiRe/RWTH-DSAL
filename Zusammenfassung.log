@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.7.6)  11 AUG 2017 18:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.7.6)  11 AUG 2017 19:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1616,58 +1616,56 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 765.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 775.
+(babel)             in language  on input line 773.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 775.
+(babel)             in language  on input line 773.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 779.
+(babel)             in language  on input line 776.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 779.
+(babel)             in language  on input line 776.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 779.
+(babel)             in language  on input line 776.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 779.
+(babel)             in language  on input line 776.
  [22]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 779.
+(babel)             in language  on input line 791.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 779.
+(babel)             in language  on input line 791.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 783.
+(babel)             in language  on input line 795.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 783.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 787.
+(babel)             in language  on input line 795.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 787.
+(babel)             in language  on input line 799.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 787.
+(babel)             in language  on input line 799.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 803.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 787.
+(babel)             in language  on input line 803.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 787.
+(babel)             in language  on input line 803.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 803.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 803.
  [23]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 787.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 803.
  (./Zusammenfassung.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 787.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 787.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 803.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 803.
+Package rerunfilecheck Info: File `Zusammenfassung.out' has not changed.
+(rerunfilecheck)             Checksum: 90BDEBA29E7A7EE94B6EA30E2F9C35E9;5978.
 
-
-Package rerunfilecheck Warning: File `Zusammenfassung.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Zusammenfassung.out':
-(rerunfilecheck)             Before: 8C624CB393F9ED8F0E08AA9E81DD6F90;5832
-(rerunfilecheck)             After:  3652106F72DBE3EB3A40F9A013940E4C;5895.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 10214 strings out of 494931
- 142182 string characters out of 6180963
- 252010 words of memory out of 5000000
- 13231 multiletter control sequences out of 15000+600000
+ 10217 strings out of 494931
+ 142231 string characters out of 6180963
+ 252013 words of memory out of 5000000
+ 13233 multiletter control sequences out of 15000+600000
  48743 words of font info for 55 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  29i,12n,43p,827b,537s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1686,10 +1684,10 @@ public/lm/lmr8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/lm/lmss12.pfb
 s/type1/public/lm/lmsy10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/lm/
 lmsy6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/texli
 ve/2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Zusammenfassung.pdf (26 pages, 264485 bytes).
+Output written on Zusammenfassung.pdf (26 pages, 268658 bytes).
 PDF statistics:
- 668 PDF objects out of 1000 (max. 8388607)
- 619 compressed objects within 7 object streams
- 134 named destinations out of 1000 (max. 500000)
- 697 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 677 PDF objects out of 1000 (max. 8388607)
+ 628 compressed objects within 7 object streams
+ 135 named destinations out of 1000 (max. 500000)
+ 713 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -770,6 +770,22 @@ Deshalb speichern wir einmal berechneten Werte. Das kostet Speicher, kann aber z
 
 Memoization hilft, wenn die Teilprobleme überlappen. Bei den Fibonacci-Zahlen sinkt die Zeitkomplexität von $\Theta(2^n)$ auf $\Theta(n)$, was natürlich enorm ist. Dafür wächst der Platzbedarf aber auf $\Theta(n)$. Eine Verbesserung ergibt sich bei den Fibonacci-Zahlen, indem man erkennt, dass nur jeweils die zwei letzten Werte benötigt werden (in-place).
 
+\subsection{Ketten von Matrixmultiplikation}
+
+Bei einer einfachen Matrixmultiplikation benötigen wir $i \cdot j \cdot k$ Fließkomma-Multiplikationen (Zeilen erste Matrix * Spalten erste Matrix * Spalten zweite Matrix). Wir betrachten nun die Multiplikation mehrerer Matrizen $M = A_1 \cdot A_2 \cdot ... \cdot A_n$ (wir gehen davon aus, dass die Matrizen jeweils miteinander kompatibel bzgl. der Matrixmultiplikation sind). Solche Ketten lassen sich wegen der Assoziativität der Matrixmultiplikation in beliebiger Reihenfolge berechnen bzw. klammern - darin liegt der Trick.
+
+Wenn wir beispielsweise drei Matrizen multiplizieren sollen, können wir $(A_1 \cdot A_2) \cdot A_3$ oder $A_1 \cdot (A_2 \cdot A_3)$ berechnen. Das kann ein gravierender Unterschied sein: Sei $A_1 \in \mathbb{R}^{10 \times 100}$, $A_2 \in \mathbb{R}^{100 \times 5}$ und $A_3 \in \mathbb{R}^{5 \times 50}$. Dann müssen wir bei der ersten Klammerung 7.500 Multiplikationen durchführen - bei der zweiten Klammerung benötigen wir allerdings enorme 75.000 Multiplikationen.
+
+Die Problemstellung ist nun also, für eine Kette von Matrizen $A_1, A_2, ..., A_n$ mit den Dimensionen $d_0 \times d_1, d_1 \times d_2, ..., d_{n-1} \times d_n$ eine Klammerung so zu finden, dass die Anzahl die Fließkomma-Multiplikationen minimal ist - wir möchten die Berechnung ja möglichst effizient durchführen.
+
+Es sei nun $P(n)$ die Anzahl der möglichen Klammerungen für $n$ Matrizen. Wir können nun bestimmen, dass $P(n) = \sum_{k = 1}^{n - 1} P(k) \cdot P(n-k) \in \Omega(2^n)$ und $P(1) = 1$ gilt. Allerdings benötigen wir eine Rekursionsgleichung für die minimale Anzahl an Multiplikationen.
+
+Sei nun $m[i,j]$ die minimale Anzahl Multiplikationen für die Teilkette $A_i \cdot ... \cdot A_j$. Offenbar ist $m[i,i] = 0$ für alle $0 < i \leq n$. Die Dimension einer Teilkette ist $d_{i-1} \times d_j$. Durch das Teilen der Kette an der Position $k$ ergibt sich: $m[i,j] = m[i,k] + d_{i-1} \cdot d_k \cdot d_j + m[k+1,j]$. Wir suchen dabei das optimale $k$, also ist $m[i,j] = 0$ für $i = j$ und für $i<j$ ist $min[i,j]=min_{i \leq k < j}(m[i,k]+m[k+1,j]+d_{i-1} \cdot d_k \cdot d_j)$.
+
+Wie bei Fibonacci werden Teilprobleme wieder mehrfach verwendet - z.B. benötigen wir $m[0,1]$ für $m[0,2], m[0,3], ..., m[0,n]$. Deswegen kann DP zum Einsatz kommen. Wir berechnen die Matrix von unten nach oben und von links nach rechts.
+
+Die Zeitkomplexität war exponentiell, nun ist sie $\Theta(n^3)$. Für die naive Variante wurde kein Platz benötigt, nun haben wir einen Platzbedarf von $\Theta(n^2)$.
+
 VL20 (11.08.2017)
 
 \section{Greedy-Algorithmen}

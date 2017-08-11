@@ -698,6 +698,20 @@ VL18 (11.08.2017)
 
 \section{Maximaler Fluss}
 
+Wir haben ein Netzwerk mit einer Quelle und einer Senke, die über mehrere Wege miteinander verbunden sind. Diese Wege haben unterschiedliche Kapazitäten (wie zum Beispiel Straßen). Uns interessiert der maximale Fluss, also die maximale Rate, mit der Material von der Quelle bis zur Senke transportiert werden kann, ohne die Kapazitätsbeschränkungen der Straßen zu verletzen.
+
+\subsection{Flussnetzwerke}
+
+Zur Formalisierung des Problems verwenden wir ein Flussnetzwerk. Das ist ein gerichteter Graph $G = (V, E, c)$ mit der Kapazitätsfunktion $c : V \times V \rightarrow \mathbb{R}_{\geq 0}$, einer Quelle $s$ und einer Senke $t$. Dabei liegt jeder Knoten $v \in V$ auf einem Pfad von der Quelle $s$ zur Senke $t$.
+
+Ein Fluss ist eine Funktion $f : V \times V \rightarrow \mathbb{R}$, dabei ist $f(u, v)$ der Fluss vom Knoten $u$ zum Knoten $v$. Es ist für $u, v \in V$ immer $f(u, v) \leq c(u, v)$ und $f(u, v) = -f(v, u)$.  Ferner gilt für $u \in V \setminus \{s, t\}$ immer $\sum_{v \in V}$ $f(u, v) = 0$.
+
+Der Wert $|f|$ eines Flusses $f$ ist der Gesamtfluss aus der Quelle $s$.
+
+Ein Flussnetzwerk mit mehreren Quellen und Senken lässt sich auf ein Flussnetzwerk mit einer Quelle und einer Senke zurückführen, indem wir eine \enquote{Superquelle} und eine \enquote{Supersenke} einführen, die wir mit den einzelnen Quellen bzw. Senken verbinden.
+
+Der Fluss zwischen zwei Knoten lässt sich leicht auf den Fluss zwischen einem Knoten und einer Knotenmenge oder sogar zwischen zwei Knotenmengen erweitern. Es ist für $x \in V, Y \subseteq V$ stets $f(x, Y) = \sum_{y \in Y}$ $f(x, y)$ und für $X, Y \subseteq V$ stets $f(X, Y) = \sum_{x \in X} \sum_{y \in Y}$ $f(x, y)$. Für $X \subseteq V$ gilt übrigens $f(X, X) = 0$.
+
 VL19 (11.08.2017)
 
 \section{Dynamische Programmierung}

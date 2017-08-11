@@ -762,6 +762,14 @@ Der Edmonds-Karp-Algorithmus übernimmt die Ford-Fulkerson-Methode, wählt den a
 
 \section{Dynamische Programmierung}
 
+\subsection{Memoization}
+
+Der Hauptansatz von dynamischer Programmierung ist, bereits berechnete Werte nicht noch einmal zu berechnen. Besonders wichtig ist das bei Rekursionsgleichungen (wie etwa bei Fibonacci), weil man hier oft den gleichen Wert sehr oft verwenden muss.
+
+Deshalb speichern wir einmal berechneten Werte. Das kostet Speicher, kann aber zu einer enormen Reduzierung der Zeitkomplexität führen. Bei jedem Funktionsaufruf prüfen wir nun, ob das Ergebnis bereits berechnet wurde (im Cache ist) - ist dies der Fall, holen wir den Wert aus dem Speicher. Ansonsten müssen wir den Wert berechnen, zusätzlich speichern wir das Ergebnis im Cache.
+
+Memoization hilft, wenn die Teilprobleme überlappen. Bei den Fibonacci-Zahlen sinkt die Zeitkomplexität von $\Theta(2^n)$ auf $\Theta(n)$, was natürlich enorm ist. Dafür wächst der Platzbedarf aber auf $\Theta(n)$. Eine Verbesserung ergibt sich bei den Fibonacci-Zahlen, indem man erkennt, dass nur jeweils die zwei letzten Werte benötigt werden (in-place).
+
 VL20 (11.08.2017)
 
 \section{Greedy-Algorithmen}

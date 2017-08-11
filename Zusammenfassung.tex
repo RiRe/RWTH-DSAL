@@ -770,6 +770,10 @@ Deshalb speichern wir einmal berechneten Werte. Das kostet Speicher, kann aber z
 
 Memoization hilft, wenn die Teilprobleme überlappen. Bei den Fibonacci-Zahlen sinkt die Zeitkomplexität von $\Theta(2^n)$ auf $\Theta(n)$, was natürlich enorm ist. Dafür wächst der Platzbedarf aber auf $\Theta(n)$. Eine Verbesserung ergibt sich bei den Fibonacci-Zahlen, indem man erkennt, dass nur jeweils die zwei letzten Werte benötigt werden (in-place).
 
+\subsection{The principle of optimality}
+
+Es sei $L$ die optimale Lösung für ein Problem $P$. Es sei $Q$ ein Teilproblem von $P$. Dann ist die Restriktion von $L$ auf $Q$ eine optimale Lösung für das Teilproblem $Q$.
+
 \subsection{Ketten von Matrixmultiplikation}
 
 Bei einer einfachen Matrixmultiplikation benötigen wir $i \cdot j \cdot k$ Fließkomma-Multiplikationen (Zeilen erste Matrix * Spalten erste Matrix * Spalten zweite Matrix). Wir betrachten nun die Multiplikation mehrerer Matrizen $M = A_1 \cdot A_2 \cdot ... \cdot A_n$ (wir gehen davon aus, dass die Matrizen jeweils miteinander kompatibel bzgl. der Matrixmultiplikation sind). Solche Ketten lassen sich wegen der Assoziativität der Matrixmultiplikation in beliebiger Reihenfolge berechnen bzw. klammern - darin liegt der Trick.
@@ -786,7 +790,13 @@ Wie bei Fibonacci werden Teilprobleme wieder mehrfach verwendet - z.B. benötige
 
 Die Zeitkomplexität war exponentiell, nun ist sie $\Theta(n^3)$. Für die naive Variante wurde kein Platz benötigt, nun haben wir einen Platzbedarf von $\Theta(n^2)$.
 
-VL20 (11.08.2017)
+\subsection{Das Rucksackproblem}
+
+Gegeben sei ein Rucksack mit maximaler Tragkraft $M$ sowie $n$ Gegenstände, die sowohl ein Gewicht als auch einen Wert haben. Wir wollen nun möglichst viel Wert mitnehmen, ohne den Rucksack zu überladen. Ein erster Ansatz ist, die Gegenstände nach dem Gewicht-Wert-Verhältnis absteigend zu sortieren und dann solange Gegenstände einzupacken, bis die maximale Tragkraft überschritten werden würde. Allerdings ist dieser Algorithmus nicht optimal, weil eventuell noch Gegenstände reinpassen würden.
+
+Wir überlegen uns nun eine Rekursionsgleichung. Diese basiert auf der Überlegung, ob wir den $n$-ten Gegenstand mitnehmen (können) oder nicht. Es sei nun $C[i,j]$ der maximale Wert des Rucksacks mit Tragkraft $j$, wenn man nur die Gegenstände $\{0, ..., i-1\}$ berücksichtigt. Daraus ergibt sich $C[i,j] = 0$ für $i = 0$, $C[i,j] = -\infty$ für $j < 0$ und ansonsten $C[i,j]=max(C[i-1,j], c_{i-1}+C[i-1, j-w_{i-1}])$. Damit ist $c_{max} = C[n,M]$.
+
+Wir lösen die Rekursionsgleichung nun buttom-up und kommen auf die gleiche Zeit- und Platzkomplexität $\Theta(n\cdot M)$.
 
 \section{Greedy-Algorithmen}
 

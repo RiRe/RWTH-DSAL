@@ -694,7 +694,31 @@ Für einen ungerichteten Graphen $G = (V, E)$ suchen wir oft ein \textbf{Matchin
 
 In der Vorlesung wurde ein Algorithmus für bipartites Matching entwickelt. Dabei beginnen wir mit dem leeren Matching $M = \emptyset$. Das Matching lassen wir Schritt für Schritt wachsen, wobei jeder Schritt die Kardinalität $|M|$ um $1$ erhöht. Wenn wir stecken bleiben, ist $M$ ein Matching maximaler Kardinalität.
 
-VL18 (11.08.2017)
+Wir können ein Matching mit maximaler Kardinalität in $\mathcal O(|V|\cdot|E|)$ Zeit berechnen, denn ein einzelner augmentierender Pfad kostet $\mathcal O(|V|+|E|)$ Zeit und es muss höchstens $\frac{|V|}{2}$-mal augmentiert werden.
+
+\subsection{Satz von Philip Hall}
+
+Ein Matching $M$ in einem Graphen $G = (V, E)$ heißt perfekt, falls $M$ alle Knoten in $V$ überdeckt. Für bipartite Graphen $G = (X \cup Y, E)$ lautet die Hall-Bedingung: $\forall S \subseteq X : |N(S)| \geq |S|$. $N(S)$ ist die Menge aller Nachbarn der Knoten $v \in S$.
+
+Hat ein Graph $G$ ein perfektes Matching, erfüllt er die Hall-Bedingung.
+
+Ein Graph $G$ mit $|X| = |Y|$ hat ein perfektes Matching gdw. die Hall-Bedingung erfüllt ist.
+
+\subsection{Satz von Dénes König}
+
+Es sei $G = (V, E)$ ein ungerichteter Graph. Eine Knotenmenge $C \subseteq V$ heißt \textbf{Vertex Cover}, falls jede Kante $e \in E$ zu mindestens einem Knoten in $C$ inzident ist.
+
+Bezeichne $\nu(G)$ die Kardinalität des größten Matchings in $G$ und $\tau(G)$ die Kardinilität des kleinsten Vertex Covers in $G$. Jeder Graph erfüllt $\nu(G) \leq \tau(G)$.
+
+Nach König gilt in einem bipartiten Graphen $G = (X \cup Y, E)$ stets $\nu(G) = \tau(G)$.
+
+\subsection{Algorithmus für gewichtetes Matching}
+
+Es sei $G = (V, E)$ ein bipartiter Graph mit Kantengewichten $w : E \rightarrow \mathbb{R}$. Wir definieren für jedes Matching $M \subseteq E$: $w(M) = \sum_{e \in M} w(e)$. Ein Matching $M \subseteq E$ heißt \textbf{k-extrem}, wenn $|M| = k$ und $w(M') \leq w(M)$ für alle Matchings $M' \subseteq E$ mit $|M'| = k$.
+
+Es ist $M_0 = \emptyset$ stets ein $0$-extremes Matching. Wir beginnen mit $M_0$ und konstruieren für $k \geq 1$ ein $k$-extremes Matching $M_k$ aus $M_{k-1}$. Dazu definieren wir für jede Kante $e \in E$ eine reelle Länge mit $l(e) = w(e)$ wenn $e \in M_{k-1}$ und $l(e) = -w(e)$ wenn $e \notin M_{k-1}$.
+
+In einem kantengewichteten bipartiten Graphen $G = (V, E)$ kann ein Matching mit maximalem Gewicht in $\mathcal O(|V|^2 \cdot |E|)$ Zeit berechnet werden, da maximal $|V|$-mal augmentiert werden muss und eine Augmentierung $\mathcal O(|V|\cdot|E|)$ Zeit kostet (mit Bellman-Ford).
 
 \section{Maximaler Fluss}
 

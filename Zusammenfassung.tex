@@ -858,7 +858,33 @@ Der Greedy-Algorithmus verschmilzt nun die beiden Buchstaben mit kleinster Häuf
 
 \section{Algorithmische Geometrie}
 
+In der algorithmischen Geometrie geht es um geometrische Probleme im $n$-dimensionalen Raum $\mathbb{R}^n$, zum Beispiel die Frage, ob sich zwei Geraden schneiden. Wir beschränken uns auf Probleme im zweidimensionalen Raum ($n = 2$), dazu nutzen wir Konzepte der linearen Algebra.
+
+Wir entwerfen Algorithmen, die trigonometrische Funktionen (Sinus, ...) und Division vermeiden, da diese zu Rundungsfehlern neigen. Wir erhoffen uns davon, dass unsere Algorithmen genauer sind.
+
+\subsection{Geometrische Interpretation}
+
+Der Winkel $\alpha$ zwischen zwei Vektoren, die im gleichen Punkt starten, ergibt sich aus $\vec{x} \cdot \vec{y} = |\vec{x}| \cdot |\vec{y}| \cdot cos(\alpha)$. Die Fläche (allgemeiner: das Volumen) des durch $\vec{x}$ und $\vec{y}$ aufgespannten Parallelogramms ist der Absolutwert der Determinanten, $|det(\vec{x}, \vec{y})|$.
+
+\subsection{Links oder rechts?}
+
+Das erste Problem, das wir betrachten, stellt die Frage, ob ein Vektor $\vec{y}$ links oder rechts von einem gegebenen Vektor $\vec{x}$ liegt. Dazu konstruieren wir den Vektor $\vec{z}$, der zu $\vec{x}$ orthogonal (90 Grad) im mathematisch positiven Sinn (Gegenuhrzeigersinn) ist.
+
+Dann projezieren wir $\vec{y}$ auf $\vec{z}$. Ist $\vec{z} \cdot \vec{y}$ negativ, zeigt $\vec{y}$ von $\vec{z}$ weg und liegt damit rechts von $\vec{x}$.
+
+Wie berechnen wir aber $\vec{z}$ aus $\vec{x}$? Nun, es ist für $\vec{x} = (x_1, x_2)$ gerade $\vec{z} = (-x_2, x_1)$. Damit ist insbesondere $\vec{z} \cdot \vec{y} = -x_2y_1 + x_1y_2 = det(\vec{x}, \vec{y})$.
+
+Also: Ist $det(\vec{x},\vec{y}) = 0$, dann sind $\vec{x}$ und $\vec{y}$ parallel bzw. antiparallel. Wenn $det(\vec{x},\vec{y}) > 0$ ist, dann liegt $\vec{y}$ links von $\vec{x}$ - ist hingegen $det(\vec{x},\vec{y}) < 0$, dann liegt $\vec{y}$ rechts von $\vec{x}$.
+
+\subsection{Punkt, Strecke, Polygon}
+
+Es ist $p = (p_1, p_2)$ ein Punkt aus dem $\mathbb{R}^2$. Der Punkt $(0,0)$ heißt Ursprung. Mit dem Vektor $\vec{d}_{pq} = q - p$ kommen wir vom Punkt $p$ nach $q$. Die (ungerichtete) Strecke $\overline{pq}$ ist die Menge aller Punkte zwischen den beiden Endpunkten $p$ und $q$ gegeben durch: $\overline{pq} = \{(1-\alpha) \cdot p + \alpha \cdot q$ $|$ $0 \leq \alpha \leq 1\} = \{p + \alpha \cdot \vec{d}_{pq}$ $|$ $0 \leq \alpha \leq 1\}$. Fassen wir $\vec{pq}$ als gerichtete Strecke auf, so ist $\vec{d}_pq$ die Richtung.
+
+Ein Streckenzug ist eine Folge von Punkten $(p_1, ..., p_n)$, die durch Strecken miteinander verbunden sind: $\overline{p_1p_2}, \overline{p_2p_3}, ..., \overline{p_{n-1}p_n}$. Ein Polygon mit den Ecken $p_1, ..., p_n$ hat als Rand den geschlossenen Streckenzug $(p_1, ..., p_n, p_1)$.
+
 VL22 (12.08.2017)
+
+\clearpage
 
 \section{Abkürzungsverzeichnis}
 

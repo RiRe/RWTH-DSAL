@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.7.6)  12 AUG 2017 14:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.7.6)  12 AUG 2017 14:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1733,47 +1733,51 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 894.
  [26]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 897.
+(babel)             in language  on input line 895.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 897.
+(babel)             in language  on input line 895.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 897.
+(babel)             in language  on input line 905.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 897.
+(babel)             in language  on input line 905.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 905.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 905.
  [27]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 899.
+(babel)             in language  on input line 907.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 899.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 903.
+(babel)             in language  on input line 907.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 911.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 903.
+(babel)             in language  on input line 911.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 903.
+(babel)             in language  on input line 911.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 903.
+(babel)             in language  on input line 911.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 903.
+(babel)             in language  on input line 911.
  [28
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 903.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 911.
 
 (./Zusammenfassung.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 903.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 903.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 911.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 911.
 Package rerunfilecheck Info: File `Zusammenfassung.out' has not changed.
-(rerunfilecheck)             Checksum: 4E2151D9CF3F3D1743E04E94632C1DA0;7086.
+(rerunfilecheck)             Checksum: DC38E02C40A08E66B0A9EC37171A6CFD;7178.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 10252 strings out of 494931
- 142746 string characters out of 6180963
+ 10254 strings out of 494931
+ 142778 string characters out of 6180963
  252019 words of memory out of 5000000
- 13248 multiletter control sequences out of 15000+600000
+ 13249 multiletter control sequences out of 15000+600000
  48743 words of font info for 55 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  29i,12n,43p,827b,537s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1792,10 +1796,10 @@ public/lm/lmr8.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/lm/lmss12.pfb
 s/type1/public/lm/lmsy10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/lm/
 lmsy6.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/texli
 ve/2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Zusammenfassung.pdf (31 pages, 288484 bytes).
+Output written on Zusammenfassung.pdf (31 pages, 289537 bytes).
 PDF statistics:
- 778 PDF objects out of 1000 (max. 8388607)
- 723 compressed objects within 8 object streams
- 155 named destinations out of 1000 (max. 500000)
- 833 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 783 PDF objects out of 1000 (max. 8388607)
+ 728 compressed objects within 8 object streams
+ 156 named destinations out of 1000 (max. 500000)
+ 841 words of extra memory for PDF output out of 10000 (max. 10000000)
 

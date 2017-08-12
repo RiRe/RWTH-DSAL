@@ -892,6 +892,16 @@ Um das zu bestimmen, verwenden wir wieder die Determinante. Dazu berechnen wir e
 
 Gegeben seien zwei Strecken $\overline{pq}$ und $\overline{rs}$ - schneiden sich diese? Wir sind nicht an der Position des Schnittpunktes interessiert. Um diese Frage zu beantworten, testen wir, ob die Endpunkte $r$ und $s$ auf verschiedenen Seiten von $\overline{pq}$ liegen - ebenso machen wir das mit $p$ und $q$ bzgl. $\overline{rs}$. Außerdem müssen wir prüfen, ob der Schnittpunkt wirklich zwischen $p$ und $q$ bzw. $r$ uns $s$ liegt.
 
+\subsection{Schnitt eines beliebigen Streckenpaares}
+
+Gegeben seien $n$ Strecken. Gibt es einen Schnitt zwischen zwei dieser Strecken? Diese Frage lässt sich mit (14.5) in $\mathcal O(n^2)$ beantworten. Es geht aber auch in linearer Zeit. Wir lassen keine vertikalen Strecken zu und es schneiden sich nicht mehr als zwei Strecken im selben Punkt.
+
+Zwei Strecken $s_1$ und $s_2$ heißen vergleichbar an der Stelle $r$, wenn beide eine vertikale Linie mit der $x_1$-Koordinate $r$ schneiden. Wenn $s_1$ an der Stelle $r$ über $s_2$ liegt, schreiben wir $s_1 >_r s_2$, ansonsten $s_2 >_r s_1$ bzw. $s_1 =_r s_2$.
+
+Wir gehen den zweidimensionalen Raum nun von links nach rechts durch (mit einer vertikalen Linie). Dabei ist für uns relevant, ob sich die Relation zweier Strecken ändert. Ist dies der Fall, müssen sich diese beiden Strecken schneiden.
+
+
+
 VL22 (12.08.2017)
 
 \clearpage

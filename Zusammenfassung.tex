@@ -848,10 +848,13 @@ Der Greedy-Algorithmus nimmt $R[1] \leq R[2] \leq ... \leq R[n]$ an. Es gibt nun
 Bei beiden vorgestellten Algorithmen kann man die Korrektheit beweisen, indem man annimmt, dass es eine optimale Lösung gibt, die sich von Greedy unterscheidet. Nun findet man den \enquote{ersten} Unterschied zwischen den beiden Lösungen. Dann kann man argumentieren, dass man die optimale Entscheidung durch die Greedy-Entscheidung ersetzen kann, ohne die Qualität zu verschlechtern.
 
 \subsection{Huffman-Codes}
-VL21 (12.08.2017)
+Ein Binär-Code kodiert jeden Buchstaben eines Alphabets $\Sigma$ durch einen String aus $\{0,1\}$. Wir nennen einen Binär-Code präfixfrei, wenn kein Codewort der Präfix eines anderen Codeworts ist.
 
-\subsection{Sequentielle Speicherung}
-VL21 (12.08.2017)
+Einen präfix-freien Binär-Code können wir durch einen Binär-Baum darstellen: Die Buchstaben sind in den Blättern, das Codewort für Buchstaben entspricht dem Pfad von der Wurzel zum Blatt (links = 0, rechts = 1). Die Länge des Codeworts entspricht der Tiefe des Blattes im Baum.
+
+Wir möchten nun unseren präfix-freien Binär-Code so optimieren, dass kodierte Botschaften mit der Texthäufigkeit $h_1, ..., h_n$ der Buchstaben so kurz wie möglich sind. Die Gesamtlänge unserer Botschaft ist $\sum_{i=1}^k h_i \cdot Tiefe[i]$.
+
+Der Greedy-Algorithmus verschmilzt nun die beiden Buchstaben mit kleinster Häufigkeit $h$ und $h'$, das Resultat hat die Häufigkeit $h + h'$. Das wird solange wiederholt, wie zwei oder mehr Buchstaben vorhanden sind. Wir implementieren das mit MinHeap (ExtractMin; Insert).
 
 \section{Algorithmische Geometrie}
 

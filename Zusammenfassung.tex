@@ -882,6 +882,16 @@ Es ist $p = (p_1, p_2)$ ein Punkt aus dem $\mathbb{R}^2$. Der Punkt $(0,0)$ hei�
 
 Ein Streckenzug ist eine Folge von Punkten $(p_1, ..., p_n)$, die durch Strecken miteinander verbunden sind: $\overline{p_1p_2}, \overline{p_2p_3}, ..., \overline{p_{n-1}p_n}$. Ein Polygon mit den Ecken $p_1, ..., p_n$ hat als Rand den geschlossenen Streckenzug $(p_1, ..., p_n, p_1)$.
 
+\subsection{Streckenzug-Problem}
+
+Gegeben sei der Streckenzug $(p, q, r)$. Wird bei $q$ nach links oder rechts abgebogen?
+
+Um das zu bestimmen, verwenden wir wieder die Determinante. Dazu berechnen wir einfach die Vektoren $\vec{a} = \vec{d}_{pq} = q - p$ und $\vec{b} = \vec{d}_{qr} = r - q$. Analog zu (14.2) geht der Knick nach links, wenn $det(\vec{a}, \vec{b}) > 0$ ist - wenn $det(\vec{a}, \vec{b}) = 0$ ist, liegt $r$ auf der Verlängerung von $\overline{pq}$.
+
+\subsection{Schnitt zweier Strecken}
+
+Gegeben seien zwei Strecken $\overline{pq}$ und $\overline{rs}$ - schneiden sich diese? Wir sind nicht an der Position des Schnittpunktes interessiert. Um diese Frage zu beantworten, testen wir, ob die Endpunkte $r$ und $s$ auf verschiedenen Seiten von $\overline{pq}$ liegen - ebenso machen wir das mit $p$ und $q$ bzgl. $\overline{rs}$. Außerdem müssen wir prüfen, ob der Schnittpunkt wirklich zwischen $p$ und $q$ bzw. $r$ uns $s$ liegt.
+
 VL22 (12.08.2017)
 
 \clearpage

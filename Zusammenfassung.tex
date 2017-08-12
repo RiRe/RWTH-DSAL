@@ -833,13 +833,19 @@ Greedy-Algorithmen finden nicht immer die beste Lösung, da die wiederholte Wahl
 So ist Greedy zum Beispiel optimal für Kruskal's Algorithmus, gut für die Bildung von Matchings mit maximaler Kardinalität (markiere neue Kante, die mit keiner markierten Kante kollidiert) und mit der in der Vorlesung präsentierten Implementierung schlecht für das Knotenfärbungsproblem.
 
 \subsection{Sequentielle Speicherung}
-VL21 (12.08.2017)
+In diesem Beispiel stellt sich das Problem, dass wir Dateien $D_1, ... D_n$ mit den Längen $L_1, ..., L_n$ haben, die wir auf einem Magnetband speichern sollen. Dabei suchen wir eine Anordnung der Dateien auf dem Magnetband, die die durchschnittliche Lesezeit minimiert.
+
+Wenn wir die Dateien in der Reihenfolge $D_1, ... D_n$ abspeichern, ist die Lesezeit für $D_k$ dann $\sum_{i=1}^k L[i]$. Die durchschnittliche Lesezeit ist dann $\frac{1}{n} \sum_{k=1}^{n} (n-k+1)\cdot{}L[k]$. Diese durchschnittliche Lesezeit müssen wir mit einer Permutation $\pi$ auf $L[1], ..., L[n]$ minimieren.
+
+Wir kommen darauf, dass wir die durchschnittliche Lesezeit minimieren können, indem wir Dateien nach monoton steigender Länge abspeichern. Ein Greedy-Algorithmus wählt also immer die kürzeste Datei und speichert sie an der nächsten freien Stelle des Bandes. Die resultierende Laufzeit ist $\mathcal O(n \cdot log(n))$.
 
 \subsection{Stundenplanung}
-VL21 (12.08.2017)
+Wir haben Vorträge $V_1, ..., V_n$ mit Startzeiten $L[1], ..., L[n]$ und Endzeiten $R[1], ..., R[n]$. Dazu suchen wir eine möglichst große Teilmenge von Vorträgen, die zeitlich nicht überlappen.
 
-\subsection{Anmerkung zu Greedy-Algorithmen}
-VL21 (12.08.2017)
+Der Greedy-Algorithmus nimmt $R[1] \leq R[2] \leq ... \leq R[n]$ an. Es gibt nun logischerweise eine optimale Lösung des Stundenplanungs-Problems, die Vortrag $V_1$ (mit kleinstem rechten Endpunkt $R[1]$) verwendet. Das löst der Greedy-Algorithmus iterativ.
+
+\subsection{Korrektheitsbeweis}
+Bei beiden vorgestellten Algorithmen kann man die Korrektheit beweisen, indem man annimmt, dass es eine optimale Lösung gibt, die sich von Greedy unterscheidet. Nun findet man den \enquote{ersten} Unterschied zwischen den beiden Lösungen. Dann kann man argumentieren, dass man die optimale Entscheidung durch die Greedy-Entscheidung ersetzen kann, ohne die Qualität zu verschlechtern.
 
 \subsection{Huffman-Codes}
 VL21 (12.08.2017)

@@ -900,7 +900,15 @@ Zwei Strecken $s_1$ und $s_2$ heißen vergleichbar an der Stelle $r$, wenn beide
 
 Wir gehen den zweidimensionalen Raum nun von links nach rechts durch (mit einer vertikalen Linie). Dabei ist für uns relevant, ob sich die Relation zweier Strecken ändert. Ist dies der Fall, müssen sich diese beiden Strecken schneiden.
 
+\subsection{Sweepline}
 
+Die Sweepline ist die Idee aus (14.6): Wir wandern von links nach rechts über die Ebene und fügen die Strecken unserer Ordnung hinzu (bzw. entfernen sie) beim Passieren der jeweiligen Endpunkte. Da schneidende Linien immer zunächst in der Ordnung benachbart sind, brauchen wir nun, für eine hinzukommende oder verlassende Strecke, nur die beiden benachbarten Strecken direkt ober- und unterhalb unseres Endpunktes auf etwaige Schnitte testen.
+
+Ein Sweepline-Algorithmus verwaltet gewöhnlich zwei Datenmengen: Der Sweepline-Status gibt die Beziehung zwischen den von der Sweepline geschnittenen Objekten an, in der Ereignisliste sind die Ereignispunkte sortiert aufgelistet. Nur an diesen Ereignispunkten hält die Sweepline an, da sich der Status nur an solchen ändern kann. Dynamische Ereignislisten (die erst beim Durchlauf entstehen) können z.B. mit binären Suchbäumen effizient implementiert werden.
+
+Beim Sweepline-Status haben wir die Ordnung der Strecken an der aktuellen Position der Sweepline. Wir müssen also hinzukommende Strecken einfügen und verlassende Strecken löschen. Außerdem benötigen wir Operationen, um die direkt über und unter einer Strecke liegende Strecke zu erhalten. Ein Rot-Schwarz-Baum implementiert diesen dynamischen, sortierten ADT. \enquote{Unter} und \enquote{über} entspricht dem Nachfolger ($bstSucc$) und dem Vorgänger ($bstPred$).
+
+Die Worst-Case-Zeitkomplexität des Sweepline-Algorithmus für eine Menge von $n$ Strecken ist $\mathcal O(n \cdot log(n))$.
 
 VL22 (12.08.2017)
 

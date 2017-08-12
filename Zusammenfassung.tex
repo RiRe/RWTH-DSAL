@@ -910,9 +910,13 @@ Beim Sweepline-Status haben wir die Ordnung der Strecken an der aktuellen Positi
 
 Die Worst-Case-Zeitkomplexität des Sweepline-Algorithmus für eine Menge von $n$ Strecken ist $\mathcal O(n \cdot log(n))$.
 
-VL22 (12.08.2017)
+\subsection{Graham-Scan-Algorithmus}
 
-\clearpage
+Ein Polygon heißt einfach, wenn es sich nicht selbst schneidet. Wir nennen ein Polygon konvex, wenn jede Verbindung (Konvexkombination) zweier Punkte des Polygons nie außerhalb des Polygons liegt. Nun suchen wir für gegebene Punkte eine konvexe Hülle, also ein konvexes Polygon, das alle Punkte enthält und dabei so klein wie möglich ist.
+
+Wir nutzen den Graham-Scan-Algorithmus, dazu starten wir von einem ausgezeichneten Punkt, der auf der Hülle liegt. Wir wählen den Punkt mit der geringsten $x_2$-Koordinate - gibt es mehrere, achten wir zudem auf die geringste $x_1$-Koordinate. Wir sortieren nun die Punkte nach zunehmenden Winkel bzgl. des Anfangspunktes (mit der Determinante). Damit haben wir quasi eine \enquote{rotierende Sweepline}.
+
+Die Worst-Zeit-Komplexität des Graham-Scan-Algorithmus für eine Menge mit $n$ Punkte ist $\Theta(n \cdot log(n))$.
 
 \section{Abkürzungsverzeichnis}
 

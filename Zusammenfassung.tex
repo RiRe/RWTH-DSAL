@@ -59,11 +59,11 @@ $Pr(I)$: Wahrscheinlichkeit, dass Eingabe $I$ auftritt
 
 \subsection{Worst-, Best- und Average-Case-Laufzeit}
 
-W(n) = max $\{ t(I) | I \in D_n \}$
+$W(n) = \max\{ t(I) | I \in D_n \}$
 
-B(n) = min $\{ t(I) | I \in D_n \}$
+$B(n) = \min\{ t(I) | I \in D_n \}$
 
-A(n) = $\sum_{I \in D_{n}}$ $Pr(I) \cdot{} t(I)$
+$A(n) = \sum_{I \in D_{n}}$ $Pr(I) \cdot{} t(I)$
 
 \subsection{Asymptotische Betrachtung}
 
@@ -89,7 +89,7 @@ $\mathcal O(cf(n)) = \mathcal O(f(n))$
 
 $\mathcal O(f(n)) + \mathcal O(g(n)) = \mathcal O(f(n) + g(n))$
 
-$\mathcal O(f(n)) + \mathcal O(g(n)) = \mathcal O($max \{$f(n), g(n)$\}$)$
+$\mathcal O(f(n)) + \mathcal O(g(n)) = \mathcal O(\max \{f(n), g(n)\})$
 
 $\mathcal O(f(n))\mathcal O(g(n)) = \mathcal O(f(n)g(n))$
 
@@ -678,7 +678,7 @@ Die Zeitkomplexität das Warshall-Algorithmus ist $\Theta(|V|^3)$, die Platzkomp
 
 \textit{Es gelten die Voraussetzungen aus 9.5.} Der Floyd-Algorithmus greift auf den Warshall-Algorithmus zurück, allerdings werden hier die Distanzen berücksichtigt (statt der Berechnung der linearen Hülle). Deshalb wird er auch als Floyd-Warshall-Algorithmus bezeichnet.
 
-Das Vorgehen ist wie bei Warshall, allerdings nutzen wir folgende Rekursionsgleichung für die Distanzen: Es ist $d_{ij}^{(0)} = W(i, j)$ und $d_{ij}^{(k)} = min \{d_{ij}^{(k-1)}, d_{ik}^{(k-1)} + d_{kj}^{(k-1)}\}$ für $k > 0$.
+Das Vorgehen ist wie bei Warshall, allerdings nutzen wir folgende Rekursionsgleichung für die Distanzen: Es ist $d_{ij}^{(0)} = W(i, j)$ und $d_{ij}^{(k)} = \min \{d_{ij}^{(k-1)}, d_{ik}^{(k-1)} + d_{kj}^{(k-1)}\}$ für $k > 0$.
 
 \section{Matching}
 
@@ -808,7 +808,7 @@ Die Problemstellung ist nun also, für eine Kette von Matrizen $A_1, A_2, ..., A
 
 Es sei nun $P(n)$ die Anzahl der möglichen Klammerungen für $n$ Matrizen. Wir können nun bestimmen, dass $P(n) = \sum_{k = 1}^{n - 1} P(k) \cdot P(n-k) \in \Omega(2^n)$ und $P(1) = 1$ gilt. Allerdings benötigen wir eine Rekursionsgleichung für die minimale Anzahl an Multiplikationen.
 
-Sei nun $m[i,j]$ die minimale Anzahl Multiplikationen für die Teilkette $A_i \cdot ... \cdot A_j$. Offenbar ist $m[i,i] = 0$ für alle $0 < i \leq n$. Die Dimension einer Teilkette ist $d_{i-1} \times d_j$. Durch das Teilen der Kette an der Position $k$ ergibt sich: $m[i,j] = m[i,k] + d_{i-1} \cdot d_k \cdot d_j + m[k+1,j]$. Wir suchen dabei das optimale $k$, also ist $m[i,j] = 0$ für $i = j$ und für $i<j$ ist $min[i,j]=min_{i \leq k < j}(m[i,k]+m[k+1,j]+d_{i-1} \cdot d_k \cdot d_j)$.
+Sei nun $m[i,j]$ die minimale Anzahl Multiplikationen für die Teilkette $A_i \cdot ... \cdot A_j$. Offenbar ist $m[i,i] = 0$ für alle $0 < i \leq n$. Die Dimension einer Teilkette ist $d_{i-1} \times d_j$. Durch das Teilen der Kette an der Position $k$ ergibt sich: $m[i,j] = m[i,k] + d_{i-1} \cdot d_k \cdot d_j + m[k+1,j]$. Wir suchen dabei das optimale $k$, also ist $m[i,j] = 0$ für $i = j$ und für $i<j$ ist $\min[i,j]=\min_{i \leq k < j}(m[i,k]+m[k+1,j]+d_{i-1} \cdot d_k \cdot d_j)$.
 
 Wie bei Fibonacci werden Teilprobleme wieder mehrfach verwendet - z.B. benötigen wir $m[0,1]$ für $m[0,2], m[0,3], ..., m[0,n]$. Deswegen kann DP zum Einsatz kommen. Wir berechnen die Matrix von unten nach oben und von links nach rechts.
 
@@ -818,7 +818,7 @@ Die Zeitkomplexität war exponentiell, nun ist sie $\Theta(n^3)$. Für die naive
 
 Gegeben sei ein Rucksack mit maximaler Tragkraft $M$ sowie $n$ Gegenstände, die sowohl ein Gewicht als auch einen Wert haben. Wir wollen nun möglichst viel Wert mitnehmen, ohne den Rucksack zu überladen. Ein erster Ansatz ist, die Gegenstände nach dem Gewicht-Wert-Verhältnis absteigend zu sortieren und dann solange Gegenstände einzupacken, bis die maximale Tragkraft überschritten werden würde. Allerdings ist dieser Algorithmus nicht optimal, weil eventuell noch Gegenstände reinpassen würden.
 
-Wir überlegen uns nun eine Rekursionsgleichung. Diese basiert auf der Überlegung, ob wir den $n$-ten Gegenstand mitnehmen (können) oder nicht. Es sei nun $C[i,j]$ der maximale Wert des Rucksacks mit Tragkraft $j$, wenn man nur die Gegenstände $\{0, ..., i-1\}$ berücksichtigt. Daraus ergibt sich $C[i,j] = 0$ für $i = 0$, $C[i,j] = -\infty$ für $j < 0$ und ansonsten $C[i,j]=max(C[i-1,j], c_{i-1}+C[i-1, j-w_{i-1}])$. Damit ist $c_{max} = C[n,M]$.
+Wir überlegen uns nun eine Rekursionsgleichung. Diese basiert auf der Überlegung, ob wir den $n$-ten Gegenstand mitnehmen (können) oder nicht. Es sei nun $C[i,j]$ der maximale Wert des Rucksacks mit Tragkraft $j$, wenn man nur die Gegenstände $\{0, ..., i-1\}$ berücksichtigt. Daraus ergibt sich $C[i,j] = 0$ für $i = 0$, $C[i,j] = -\infty$ für $j < 0$ und ansonsten $C[i,j]=\max(C[i-1,j], c_{i-1}+C[i-1, j-w_{i-1}])$. Damit ist $c_{\max} = C[n,M]$.
 
 Wir lösen die Rekursionsgleichung nun buttom-up und kommen auf die gleiche Zeit- und Platzkomplexität $\Theta(n\cdot M)$.
 
@@ -837,7 +837,7 @@ In diesem Beispiel stellt sich das Problem, dass wir Dateien $D_1, ... D_n$ mit 
 
 Wenn wir die Dateien in der Reihenfolge $D_1, ... D_n$ abspeichern, ist die Lesezeit für $D_k$ dann $\sum_{i=1}^k L[i]$. Die durchschnittliche Lesezeit ist dann $\frac{1}{n} \sum_{k=1}^{n} (n-k+1)\cdot{}L[k]$. Diese durchschnittliche Lesezeit müssen wir mit einer Permutation $\pi$ auf $L[1], ..., L[n]$ minimieren.
 
-Wir kommen darauf, dass wir die durchschnittliche Lesezeit minimieren können, indem wir Dateien nach monoton steigender Länge abspeichern. Ein Greedy-Algorithmus wählt also immer die kürzeste Datei und speichert sie an der nächsten freien Stelle des Bandes. Die resultierende Laufzeit ist $\mathcal O(n \cdot log(n))$.
+Wir kommen darauf, dass wir die durchschnittliche Lesezeit minimieren können, indem wir Dateien nach monoton steigender Länge abspeichern. Ein Greedy-Algorithmus wählt also immer die kürzeste Datei und speichert sie an der nächsten freien Stelle des Bandes. Die resultierende Laufzeit ist $\mathcal O(n \cdot \log(n))$.
 
 \subsection{Stundenplanung}
 Wir haben Vorträge $V_1, ..., V_n$ mit Startzeiten $L[1], ..., L[n]$ und Endzeiten $R[1], ..., R[n]$. Dazu suchen wir eine möglichst große Teilmenge von Vorträgen, die zeitlich nicht überlappen.
@@ -864,7 +864,7 @@ Wir entwerfen Algorithmen, die trigonometrische Funktionen (Sinus, ...) und Divi
 
 \subsection{Geometrische Interpretation}
 
-Der Winkel $\alpha$ zwischen zwei Vektoren, die im gleichen Punkt starten, ergibt sich aus $\vec{x} \cdot \vec{y} = |\vec{x}| \cdot |\vec{y}| \cdot cos(\alpha)$. Die Fläche (allgemeiner: das Volumen) des durch $\vec{x}$ und $\vec{y}$ aufgespannten Parallelogramms ist der Absolutwert der Determinanten, $|det(\vec{x}, \vec{y})|$.
+Der Winkel $\alpha$ zwischen zwei Vektoren, die im gleichen Punkt starten, ergibt sich aus $\vec{x} \cdot \vec{y} = |\vec{x}| \cdot |\vec{y}| \cdot \cos(\alpha)$. Die Fläche (allgemeiner: das Volumen) des durch $\vec{x}$ und $\vec{y}$ aufgespannten Parallelogramms ist der Absolutwert der Determinanten, $|\det(\vec{x}, \vec{y})|$.
 
 \subsection{Links oder rechts?}
 
@@ -872,9 +872,9 @@ Das erste Problem, das wir betrachten, stellt die Frage, ob ein Vektor $\vec{y}$
 
 Dann projezieren wir $\vec{y}$ auf $\vec{z}$. Ist $\vec{z} \cdot \vec{y}$ negativ, zeigt $\vec{y}$ von $\vec{z}$ weg und liegt damit rechts von $\vec{x}$.
 
-Wie berechnen wir aber $\vec{z}$ aus $\vec{x}$? Nun, es ist für $\vec{x} = (x_1, x_2)$ gerade $\vec{z} = (-x_2, x_1)$. Damit ist insbesondere $\vec{z} \cdot \vec{y} = -x_2y_1 + x_1y_2 = det(\vec{x}, \vec{y})$.
+Wie berechnen wir aber $\vec{z}$ aus $\vec{x}$? Nun, es ist für $\vec{x} = (x_1, x_2)$ gerade $\vec{z} = (-x_2, x_1)$. Damit ist insbesondere $\vec{z} \cdot \vec{y} = -x_2y_1 + x_1y_2 = \det(\vec{x}, \vec{y})$.
 
-Also: Ist $det(\vec{x},\vec{y}) = 0$, dann sind $\vec{x}$ und $\vec{y}$ parallel bzw. antiparallel. Wenn $det(\vec{x},\vec{y}) > 0$ ist, dann liegt $\vec{y}$ links von $\vec{x}$ - ist hingegen $det(\vec{x},\vec{y}) < 0$, dann liegt $\vec{y}$ rechts von $\vec{x}$.
+Also: Ist $\det(\vec{x},\vec{y}) = 0$, dann sind $\vec{x}$ und $\vec{y}$ parallel bzw. antiparallel. Wenn $\det(\vec{x},\vec{y}) > 0$ ist, dann liegt $\vec{y}$ links von $\vec{x}$ - ist hingegen $\det(\vec{x},\vec{y}) < 0$, dann liegt $\vec{y}$ rechts von $\vec{x}$.
 
 \subsection{Punkt, Strecke, Polygon}
 
@@ -886,7 +886,7 @@ Ein Streckenzug ist eine Folge von Punkten $(p_1, ..., p_n)$, die durch Strecken
 
 Gegeben sei der Streckenzug $(p, q, r)$. Wird bei $q$ nach links oder rechts abgebogen?
 
-Um das zu bestimmen, verwenden wir wieder die Determinante. Dazu berechnen wir einfach die Vektoren $\vec{a} = \vec{d}_{pq} = q - p$ und $\vec{b} = \vec{d}_{qr} = r - q$. Analog zu (14.2) geht der Knick nach links, wenn $det(\vec{a}, \vec{b}) > 0$ ist - wenn $det(\vec{a}, \vec{b}) = 0$ ist, liegt $r$ auf der Verlängerung von $\overline{pq}$.
+Um das zu bestimmen, verwenden wir wieder die Determinante. Dazu berechnen wir einfach die Vektoren $\vec{a} = \vec{d}_{pq} = q - p$ und $\vec{b} = \vec{d}_{qr} = r - q$. Analog zu (14.2) geht der Knick nach links, wenn $\det(\vec{a}, \vec{b}) > 0$ ist - wenn $\det(\vec{a}, \vec{b}) = 0$ ist, liegt $r$ auf der Verlängerung von $\overline{pq}$.
 
 \subsection{Schnitt zweier Strecken}
 
@@ -906,9 +906,9 @@ Die Sweepline ist die Idee aus (14.6): Wir wandern von links nach rechts über d
 
 Ein Sweepline-Algorithmus verwaltet gewöhnlich zwei Datenmengen: Der Sweepline-Status gibt die Beziehung zwischen den von der Sweepline geschnittenen Objekten an, in der Ereignisliste sind die Ereignispunkte sortiert aufgelistet. Nur an diesen Ereignispunkten hält die Sweepline an, da sich der Status nur an solchen ändern kann. Dynamische Ereignislisten (die erst beim Durchlauf entstehen) können z.B. mit binären Suchbäumen effizient implementiert werden.
 
-Beim Sweepline-Status haben wir die Ordnung der Strecken an der aktuellen Position der Sweepline. Wir müssen also hinzukommende Strecken einfügen und verlassende Strecken löschen. Außerdem benötigen wir Operationen, um die direkt über und unter einer Strecke liegende Strecke zu erhalten. Ein Rot-Schwarz-Baum implementiert diesen dynamischen, sortierten ADT. \enquote{Unter} und \enquote{über} entspricht dem Nachfolger ($bstSucc$) und dem Vorgänger ($bstPred$).
+Beim Sweepline-Status haben wir die Ordnung der Strecken an der aktuellen Position der Sweepline. Wir müssen also hinzukommende Strecken einfügen und verlassende Strecken löschen. Außerdem benötigen wir Operationen, um die direkt über und unter einer Strecke liegende Strecke zu erhalten. Ein Rot-Schwarz-Baum implementiert diesen dynamischen, sortierten ADT. \enquote{Unter} und \enquote{über} entspricht dem Nachfolger ($\operatorname{bstSucc}$) und dem Vorgänger ($\operatorname{bstPred}$).
 
-Die Worst-Case-Zeitkomplexität des Sweepline-Algorithmus für eine Menge von $n$ Strecken ist $\mathcal O(n \cdot log(n))$.
+Die Worst-Case-Zeitkomplexität des Sweepline-Algorithmus für eine Menge von $n$ Strecken ist $\mathcal O(n \cdot \log(n))$.
 
 \subsection{Graham-Scan-Algorithmus}
 
@@ -916,7 +916,7 @@ Ein Polygon heißt einfach, wenn es sich nicht selbst schneidet. Wir nennen ein 
 
 Wir nutzen den Graham-Scan-Algorithmus, dazu starten wir von einem ausgezeichneten Punkt, der auf der Hülle liegt. Wir wählen den Punkt mit der geringsten $x_2$-Koordinate - gibt es mehrere, achten wir zudem auf die geringste $x_1$-Koordinate. Wir sortieren nun die Punkte nach zunehmenden Winkel bzgl. des Anfangspunktes (mit der Determinante). Damit haben wir quasi eine \enquote{rotierende Sweepline}.
 
-Die Worst-Zeit-Komplexität des Graham-Scan-Algorithmus für eine Menge mit $n$ Punkte ist $\Theta(n \cdot log(n))$.
+Die Worst-Zeit-Komplexität des Graham-Scan-Algorithmus für eine Menge mit $n$ Punkte ist $\Theta(n \cdot \log(n))$.
 
 \section{Abkürzungsverzeichnis}
 
